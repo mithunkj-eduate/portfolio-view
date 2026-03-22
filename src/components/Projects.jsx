@@ -1,7 +1,7 @@
 import usePortfolioData from "../data/portfolioData";
+import { convertDriveToImageUrl } from "../utly/utlyFunction";
 
 export default function Projects() {
-
   const { projects } = usePortfolioData();
 
   return (
@@ -16,7 +16,14 @@ export default function Projects() {
             className="project-card"
             onClick={() => window.open(p.link, "_blank")}
           >
-            <div className="project-thumb" style={{ background: p.bg }} />
+            <div
+              className="project-thumb"
+              style={{ background: "linear-gradient(135deg,#0f0f20,#161628)" }}
+            >
+              {p.image && convertDriveToImageUrl(p.image) && (
+                <img src={convertDriveToImageUrl(p.image)} className="" />
+              )}
+            </div>
 
             <div className="project-body">
               <div className="project-title">{p.title}</div>

@@ -18,14 +18,16 @@ const portfolioData = {
       desc: "Scalable platform...",
       link: "https://apisr.shareurinterest.com/",
       tech: ["React", "Node", "MongoDB"],
-      bg: "linear-gradient(135deg,#0f0f20,#161628)",
+      // bg: "linear-gradient(135deg,#0f0f20,#161628)",
+      image:""
     },
     {
       title: "ShareMyInterest",
       desc: "Instagram clone...",
       link: "https://snap.shareurinterest.com/",
       tech: ["React", "Node"],
-      bg: "linear-gradient(135deg,#18101e,#1e1228)",
+      // bg: "linear-gradient(135deg,#18101e,#1e1228)",
+      image:""
     },
   ],
   about: {
