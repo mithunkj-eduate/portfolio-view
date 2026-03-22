@@ -1,0 +1,2 @@
+# .env
+VITE_PRODUCTION_BASE_URL=https://apicivil.shareurinterest.com
