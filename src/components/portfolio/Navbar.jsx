@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import usePortfolioData from "../data/portfolioData";
+import usePortfolioData from "../../data/portfolioData";
 
 export default function Navbar() {
   const [theme, setTheme] = useState("dark");

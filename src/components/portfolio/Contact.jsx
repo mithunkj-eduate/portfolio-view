@@ -1,5 +1,5 @@
 import { Fragment } from "react";
-import usePortfolioData from "../data/portfolioData";
+import usePortfolioData from "../../data/portfolioData";
 
 export default function Contact() {
   const { contact } = usePortfolioData();

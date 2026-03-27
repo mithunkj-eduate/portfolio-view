@@ -1,4 +1,4 @@
-import usePortfolioData from "../data/portfolioData";
+import usePortfolioData from "../../data/portfolioData";
 
 export default function Skills() {
 

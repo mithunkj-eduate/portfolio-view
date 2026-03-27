@@ -1,5 +1,5 @@
-import usePortfolioData from "../data/portfolioData";
-import { convertDriveToImageUrl } from "../utly/utlyFunction";
+import usePortfolioData from "../../data/portfolioData";
+import { convertDriveToImageUrl } from "../../utly/utlyFunction";
 
 export default function Projects() {
   const { projects } = usePortfolioData();

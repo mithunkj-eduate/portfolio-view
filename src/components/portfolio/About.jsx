@@ -1,6 +1,6 @@
 // import usePortfolioData from "../data/portfolioData";
 
-import usePortfolioData from "../data/portfolioData";
+import usePortfolioData from "../../data/portfolioData";
 
 export default function About() {
   const { about } = usePortfolioData()
