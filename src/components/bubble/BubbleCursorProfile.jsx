@@ -74,7 +74,7 @@ a{color:inherit;text-decoration:none}ul{list-style:none}
 /* nav */
 nav{position:fixed;top:0;inset-x:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.1rem 3rem;background:rgba(7,7,15,.65);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);transition:var(--tr)}
 [data-theme="light"] nav{background:rgba(244,243,255,.78)}
-.logo{font-size:1.15rem;font-weight:800;letter-spacing:-.02em}
+.logo{font-size:1.15rem;font-weight:800;letter-spacing:-.02em;}
 .logo span{color:var(--accent);transition:color .4s}
 .nav-r{display:flex;gap:1.8rem;align-items:center}
 .nav-r a{font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .2s}
@@ -190,7 +190,8 @@ footer p{font-family:var(--mono);font-size:.65rem;color:var(--muted)}
   .hero{grid-template-columns:1fr;padding:7rem 1.8rem 3rem;text-align:center}
   .hvis{display:none}.stats{justify-content:center}.crow{justify-content:center}.hlbl{justify-content:center}
   .agrid{grid-template-columns:1fr}.sw{padding:4rem 1.8rem}
-  nav{padding:1rem 1.5rem}.nav-r{gap:1.2rem}
+  nav{padding:.56rem 1.2rem}.nav-r{gap:1.2rem}
+.nav-r a{font-size:.56rem;}
   footer{flex-direction:column;gap:.75rem;text-align:center;padding:1.5rem 1.8rem}
   .sep{margin:0 1.8rem}
 }

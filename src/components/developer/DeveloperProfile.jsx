@@ -7,8 +7,6 @@ gf.href =
 gf.rel = "stylesheet";
 document.head.appendChild(gf);
 
-
-
 /* ─── useInView hook ─────────────────────────────────────────────────── */
 function useInView(threshold = 0.12) {
   const ref = useRef(null);
@@ -235,6 +233,8 @@ const CSS = `
     .nav-links{display:none}
     #hero{padding:100px 24px 60px}
     .hero-inner{grid-template-columns:1fr;gap:48px}
+  .stat-val{font-size:24px;font-weight:800;color:var(--accent);line-height:1;margin-bottom:6px}
+
     .sec-wrap{padding:70px 24px}
     .divider::after{left:24px}
     .about-grid,.contact-inner{grid-template-columns:1fr;gap:40px}
@@ -364,7 +364,7 @@ function Cursor() {
 }
 
 /* ─── Navbar ──────────────────────────────────────────────────────────── */
-function Navbar() {
+function Navbar({ data }) {
   const [scrolled, setScrolled] = useState(false);
   const [active, setActive] = useState("hero");
 
@@ -386,7 +386,10 @@ function Navbar() {
 
   return (
     <nav className={`nav${scrolled ? " scrolled" : ""}`}>
-      <div className="nav-logo">MKJ</div>
+      <div className="nav-logo">
+        {data?.name.charAt(0)} <span>{data.highlight.charAt(0)}</span>
+      </div>
+
       <ul className="nav-links">
         {["about", "skills", "projects", "contact"].map((id) => (
           <li key={id}>
@@ -402,7 +405,7 @@ function Navbar() {
 }
 
 /* ─── Hero ────────────────────────────────────────────────────────────── */
-function Hero({ data }) {
+function Hero({ data, skills }) {
   const { name, highlight, subtitle, desc, stats } = data;
   return (
     <section id="hero">
@@ -451,28 +454,35 @@ function Hero({ data }) {
               <div className="td r" />
               <div className="td y" />
               <div className="td g" />
-              <span className="term-title">mithun.config.json</span>
+              <span className="term-title">{data?.name}.config.json</span>
             </div>
             <div className="term-body">
               <div>
                 <span className="tc">// Current stack</span>
               </div>
-              <div>
-                <span className="tk">frontend</span>:{" "}
-                <span className="ts">"React.js, Next.js"</span>
-              </div>
-              <div>
-                <span className="tk">backend</span>:{" "}
-                <span className="ts">"Node.js, Golang"</span>
-              </div>
-              <div>
-                <span className="tk">api</span>:{" "}
-                <span className="ts">"GraphQL, REST"</span>
-              </div>
-              <div>
-                <span className="tk">db</span>:{" "}
-                <span className="ts">"MongoDB, PostgreSQL"</span>
-              </div>
+              {/* {skills.map((s, i) => (
+                <div key={i}>
+                  <span className="tk">{s.title}</span>:{" "}
+                  <span className="ts">
+                    "{s.items.map((item, j) => (
+                      <span key={j}>
+                       {`${item},`}
+                      </span>
+                    ))}"
+                  </span>
+                </div>
+              ))} */}
+
+              {skills.map((s, i) => (
+                <div key={i}>
+                  <span className="tk text-violet-400 font-medium whitespace-nowrap">
+                    {s.title.toLowerCase()}
+                  </span>
+                  <span className="text-white">:</span>
+                  <span className="ts">"{s.items.join(", ")}"</span>
+                </div>
+              ))}
+
               <div>
                 <span className="tk">location</span>:{" "}
                 <span className="tv">"Bengaluru, IN"</span>
@@ -744,9 +754,9 @@ export default function DevloperPortfolio({ data }) {
       <style>{CSS}</style>
       <div className="noise" />
       <Cursor />
-      <Navbar />
+      <Navbar data={hero} />
       <main>
-        <Hero data={hero} />
+        <Hero data={hero} skills={skills} />
         <Divider />
         <About data={about} />
         <Divider />
