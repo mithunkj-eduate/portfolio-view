@@ -133,7 +133,7 @@ h2{font-size:clamp(1.9rem,3.6vw,2.75rem);font-weight:800;letter-spacing:-.03em;m
 
 /* projects */
 .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(295px,1fr));gap:1.75rem}
-.pcard{background:var(--card);border:1px solid var(--border);border-radius:17px;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .32s,background .4s;display:flex;flex-direction:column}
+. {background:var(--card);border:1px solid var(--border);border-radius:17px;overflow:hidden;transition:transform .3s,box-shadow .3s,border-color .32s,background .4s;display:flex;flex-direction:column}
 .pcard:hover{transform:translateY(-5px);box-shadow:0 18px 52px rgba(0,0,0,.35);border-color:var(--accent)}
 .pimg{height:180px;background:linear-gradient(145deg,var(--surface),var(--card));display:flex;align-items:center;justify-content:center;border-bottom:1px solid var(--border)}
 .pimg svg{opacity:.2}
