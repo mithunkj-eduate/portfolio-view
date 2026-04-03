@@ -1,8 +1,6 @@
-import usePortfolioData from "../../data/portfolioData";
 import { convertDriveToImageUrl } from "../../utly/utlyFunction";
 
-export default function Projects() {
-  const { projects } = usePortfolioData();
+export default function Projects({projects}) {
 
   return (
     <section id="projects">

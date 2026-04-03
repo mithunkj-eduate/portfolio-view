@@ -1,8 +1,6 @@
-import usePortfolioData from "../../data/portfolioData";
 
-export default function Skills() {
+export default function Skills({skills}) {
 
-  const { skills } = usePortfolioData();
 
 
   return (

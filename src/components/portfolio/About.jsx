@@ -1,9 +1,7 @@
 // import usePortfolioData from "../data/portfolioData";
 
-import usePortfolioData from "../../data/portfolioData";
 
-export default function About() {
-  const { about } = usePortfolioData()
+export default function About({about}) {
 
   return (
     <section id="about">

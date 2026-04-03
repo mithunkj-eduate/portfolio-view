@@ -1,8 +1,6 @@
 import { Fragment } from "react";
-import usePortfolioData from "../../data/portfolioData";
 
-export default function Contact() {
-  const { contact } = usePortfolioData();
+export default function Contact({contact}) {
 
   return (
     <section id="contact">

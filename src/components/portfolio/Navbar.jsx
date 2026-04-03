@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import usePortfolioData from "../../data/portfolioData";
 
-export default function Navbar() {
+export default function Navbar({ hero }) {
   const [theme, setTheme] = useState("dark");
-  const { hero } = usePortfolioData();
 
   useEffect(() => {
     document.documentElement.setAttribute("data-theme", theme);
@@ -11,7 +9,9 @@ export default function Navbar() {
 
   return (
     <nav>
-      <div className="nav-logo">{`${hero.name && hero.name.charAt(0)}${hero.highlight && hero.highlight.charAt(0)}`}</div>
+      {hero?.name && (
+        <div className="nav-logo">{`${hero.name && hero.name.charAt(0)}${hero.highlight && hero.highlight.charAt(0)}`}</div>
+      )}
 
       <div className="nav-right">
         <div className="nav-links">
