@@ -1,9 +1,6 @@
-import usePortfolioData from "../../data/portfolioData";
 import { convertDriveToImageUrl } from "../../utly/utlyFunction";
 
-export default function Hero() {
-  const { hero } = usePortfolioData();
-console.log(hero,"hero")
+export default function Hero({hero}) {
   const driveLink = hero.image ? hero.image : "";
 
   const imageUrl = convertDriveToImageUrl(driveLink);

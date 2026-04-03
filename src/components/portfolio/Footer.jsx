@@ -1,7 +1,5 @@
-import usePortfolioData from "../../data/portfolioData";
 
-export default function Footer() {
-  const { footer } = usePortfolioData();
+export default function Footer({footer}) {
 
 
   return (

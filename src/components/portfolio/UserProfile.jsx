@@ -15,13 +15,13 @@ export default function UserProfile() {
 
   return (
     <>
-      <Navbar />
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Contact />
-      <Footer />
+      {data.hero && <Navbar hero={data.hero} />}
+      {data.hero && <Hero hero={data.hero} />}
+      {data.about && <About about={data.about} />}
+      {data.skills && <Skills skills={data.skills} />}
+      {data.projects && <Projects projects={data.projects} />}
+      {data.contact && <Contact contact={data.contact} />}
+      {data.footer && <Footer footer={data.footer} />}
     </>
   );
 }
