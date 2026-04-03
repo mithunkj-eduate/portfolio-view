@@ -1,0 +1,46 @@
+/* styles/notfound.css */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: #000;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.title {
+  font-size: 80px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  background: linear-gradient(90deg, #7c3aed, #d946ef);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.desc {
+  color: #9ca3af;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+.btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #7c3aed, #d946ef);
+  color: white;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  opacity: 0.8;
+}
