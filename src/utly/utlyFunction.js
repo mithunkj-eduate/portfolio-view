@@ -1,4 +1,6 @@
-export const  convertDriveToImageUrl =(driveUrl) =>{
+export const convertDriveToImageUrl = (driveUrl) => {
+  const driveImage = driveUrl.includes("drive.google.com");
+  if (driveImage) {
     // Extract file ID using regex
     const match = driveUrl.match(/\/d\/([a-zA-Z0-9_-]+)/);
 
@@ -11,4 +13,5 @@ export const  convertDriveToImageUrl =(driveUrl) =>{
 
     // Return thumbnail URL (best for <img>)
     return `https://drive.google.com/thumbnail?id=${fileId}&sz=w1000`;
-  }
+  } else return driveUrl;
+};
