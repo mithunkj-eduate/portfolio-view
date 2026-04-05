@@ -5,8 +5,13 @@ import BubbleCursorUserProfile from "./components/bubble/BubbleCursorUserProfile
 import UserProfile from "./components/portfolio/UserProfile";
 import DevCursorUserProfile from "./components/db/DevCursorUserProfile";
 import DeveloperCursorUserProfile from "./components/developer/DeveloperCursorUserProfile";
+import { useContext } from "react";
+import { AppContext } from "./context/context";
+import PreviewPage from "./components/apps/PreviewPage";
 
 export default function App() {
+  const { state } = useContext(AppContext);
+
   return (
     <>
       <Routes>
@@ -22,7 +27,25 @@ export default function App() {
           element={<DeveloperCursorUserProfile />}
         />
 
-        <Route path="/:id" element={<UserProfile />} />
+        <Route
+          path="/apps/:appId"
+          element={<PreviewPage />}
+        />
+
+        <Route
+          path="/:id"
+          element={
+            state.portfolioType === "cursor" ? (
+              <CursorUserProfile />
+            ) : state.portfolioType === "bubble" ? (
+              <BubbleCursorUserProfile />
+            ) : state.portfolioType === "developer" ? (
+              <DeveloperCursorUserProfile />
+            ) : (
+              <UserProfile />
+            )
+          }
+        />
       </Routes>
     </>
   );

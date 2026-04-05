@@ -642,11 +642,14 @@ const portfolioData5 = {
 };
 
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { AppContext } from "../context/context";
+import { payloadTypes } from "../context/reducer";
 
 function usePortfolioData() {
   const apiBaseUrl = import.meta.env.VITE_PRODUCTION_BASE_URL;
+  const { dispatch } = useContext(AppContext);
 
   const [data, setData] = useState(null);
   const { id } = useParams();
@@ -657,7 +660,16 @@ function usePortfolioData() {
     const getUser = async () => {
       try {
         const res = await axios.get(`${apiBaseUrl}/api/portfolio/${id}`);
-        if (res && res.data) setData(res.data.data);
+        if (res && res.data) {
+          setData(res.data.data);
+
+          dispatch({
+            type: payloadTypes.SET_PORTFOLIO_TYPE,
+            payload: {
+              portfolioType: res.data.type,
+            },
+          });
+        }
       } catch (error) {
         console.log(error);
       }
@@ -667,8 +679,9 @@ function usePortfolioData() {
       id !== "priya-design" ||
       id !== "rahul-builds" ||
       id !== "sara-codes"
-    )
+    ) {
       getUser();
+    }
   }, [apiBaseUrl, id]);
 
   const result =
