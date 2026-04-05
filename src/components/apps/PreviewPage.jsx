@@ -6,14 +6,20 @@ const PreviewPage = () => {
   const apiBaseUrl = import.meta.env.VITE_PRODUCTION_BASE_URL;
 
   return (
-      <iframe
-        src={`${apiBaseUrl}/api/apps/${appId}`}
-        sandbox="allow-scripts"
-        style={{
-          width: "100%",
-          height: "100vh",
-        }}
-      />
+    <iframe
+      src={`${apiBaseUrl}/api/apps/${appId}`}
+      sandbox="allow-scripts"
+      style={{
+        position: "absolute",
+        top: 0,
+        left: 0,
+        width: "100%",
+        height: "100%",
+        border: "none",
+      }}
+      scrolling="no"
+      title="External Content"
+    />
   );
 };
 
