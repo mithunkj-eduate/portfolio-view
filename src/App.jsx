@@ -7,6 +7,7 @@ import DevCursorUserProfile from "./components/db/DevCursorUserProfile";
 import DeveloperCursorUserProfile from "./components/developer/DeveloperCursorUserProfile";
 import { useContext } from "react";
 import { AppContext } from "./context/context";
+import PreviewPage from "./components/apps/PreviewPage";
 
 export default function App() {
   const { state } = useContext(AppContext);
@@ -24,6 +25,11 @@ export default function App() {
         <Route
           path="/developerportfolio/:id"
           element={<DeveloperCursorUserProfile />}
+        />
+
+        <Route
+          path="/apps/:appId"
+          element={<PreviewPage />}
         />
 
         <Route
