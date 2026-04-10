@@ -4,63 +4,111 @@ const data = {
   accentColor: "#15803d",
   hero: {
     heading: "Growing Goodness Naturally",
-    subheading: "12+ years cultivating pure, nutrient-rich organic produce using regenerative and traditional farming methods on my family farm near Bengaluru.",
+    subheading:
+      "12+ years cultivating pure, nutrient-rich organic produce using regenerative and traditional farming methods on my family farm near Bengaluru.",
     carousel: [
       "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1200&q=80",
-      "https://images.unsplash.com/photo-1500595046743-cd271d694394?w=1200&q=80",
-      "https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?w=1200&q=80"
+      "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1200&q=80",
+      "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1200&q=80",
     ],
     stats: [
       { label: "Years Farming", value: "12+" },
       { label: "Acres Cultivated", value: "25" },
       { label: "Happy Families", value: "2,500+" },
-      { label: "Crops Grown", value: "40+" }
-    ]
+      { label: "Crops Grown", value: "40+" },
+    ],
   },
   about: {
-    description: "A passionate third-generation farmer turned organic agriculture expert. After working in the city, I returned to my roots to revive traditional farming practices blended with modern sustainable techniques. My farm focuses on soil health, biodiversity, and producing the purest possible food for Bengaluru families.",
-    image: "https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?w=800&q=80",
+    description:
+      "A passionate third-generation farmer turned organic agriculture expert. After working in the city, I returned to my roots to revive traditional farming practices blended with modern sustainable techniques. My farm focuses on soil health, biodiversity, and producing the purest possible food for Bengaluru families.",
+    image:
+      "https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?w=800&q=80",
     highlights: [
       { icon: "🌿", title: "Philosophy", value: "Regenerative Farming" },
       { icon: "🏆", title: "Certification", value: "NPOP Organic" },
       { icon: "👥", title: "Community", value: "Farm-to-Table Network" },
-      { icon: "🌱", title: "Focus", value: "Soil & Biodiversity" }
-    ]
+      { icon: "🌱", title: "Focus", value: "Soil & Biodiversity" },
+    ],
   },
   services: [
     {
       title: "Fresh Organic Produce Delivery",
-      description: "Weekly subscription boxes of seasonal, hand-picked organic vegetables, fruits, and millets delivered fresh from farm to your doorstep.",
-      image: "https://images.unsplash.com/photo-1607305387299-a3d9611cd469?w=600&q=80",
+      description:
+        "Weekly subscription boxes of seasonal, hand-picked organic vegetables, fruits, and millets delivered fresh from farm to your doorstep.",
+      image:
+        "https://images.unsplash.com/photo-1607305387299-a3d9611cd469?w=600&q=80",
       price: "₹899",
       duration: "Weekly",
       badge: "Most Popular",
-      features: ["Chemical-free", "Farm fresh", "Seasonal varieties", "Traceable origin"]
+      features: [
+        "Chemical-free",
+        "Farm fresh",
+        "Seasonal varieties",
+        "Traceable origin",
+      ],
     },
     {
       title: "Educational Farm Tours & Workshops",
-      description: "Guided tours of the farm with hands-on learning about organic practices, composting, and sustainable living.",
-      image: "https://images.unsplash.com/photo-1500595046743-cd271d694394?w=600&q=80",
+      description:
+        "Guided tours of the farm with hands-on learning about organic practices, composting, and sustainable living.",
+      image:
+        "https://images.unsplash.com/photo-1500595046743-cd271d694394?w=600&q=80",
       price: "₹1,200",
       duration: "3 hours",
       badge: "Experiential",
-      features: ["Guided tour", "Hands-on activities", "Organic lunch", "Q&A session"]
+      features: [
+        "Guided tour",
+        "Hands-on activities",
+        "Organic lunch",
+        "Q&A session",
+      ],
     },
     {
       title: "Bulk Organic Supply for Restaurants",
-      description: "Reliable supply of premium organic produce to restaurants, cafes, and corporates seeking authentic farm-fresh ingredients.",
-      image: "https://images.unsplash.com/photo-1600585154340-be6161a56a9c?w=600&q=80",
+      description:
+        "Reliable supply of premium organic produce to restaurants, cafes, and corporates seeking authentic farm-fresh ingredients.",
+      image:
+        "https://images.unsplash.com/photo-1600585154340-be6161a56a9c?w=600&q=80",
       price: "Contact for quote",
       duration: "Custom",
       badge: "B2B",
-      features: ["Consistent quality", "Traceability", "Flexible scheduling", "Custom packaging"]
-    }
+      features: [
+        "Consistent quality",
+        "Traceability",
+        "Flexible scheduling",
+        "Custom packaging",
+      ],
+    },
   ],
   projects: [
-    { title: "Regenerative Millets Revival", category: "Crop Restoration", year: "2024", desc: "Revived traditional millet cultivation on 8 acres using natural farming, increasing yield while restoring soil health.", tags: ["Millets", "Regenerative", "Soil Health"] },
-    { title: "Zero Waste Composting Initiative", category: "Sustainability", year: "2023", desc: "On-farm composting system converting waste into rich organic fertilizer, reducing external inputs by 90%.", tags: ["Composting", "Circular Economy"] },
-    { title: "Biodiversity Kitchen Garden Network", category: "Community", year: "2025", desc: "Created a network of 50+ home kitchen gardens in Bengaluru using seeds and training from our farm.", tags: ["Urban Farming", "Community"] },
-    { title: "Organic Traceability System", category: "Innovation", year: "2024", desc: "Implemented full farm traceability using QR codes so customers can track produce from seed to plate.", tags: ["Traceability", "Transparency"] }
+    {
+      title: "Regenerative Millets Revival",
+      category: "Crop Restoration",
+      year: "2024",
+      desc: "Revived traditional millet cultivation on 8 acres using natural farming, increasing yield while restoring soil health.",
+      tags: ["Millets", "Regenerative", "Soil Health"],
+    },
+    {
+      title: "Zero Waste Composting Initiative",
+      category: "Sustainability",
+      year: "2023",
+      desc: "On-farm composting system converting waste into rich organic fertilizer, reducing external inputs by 90%.",
+      tags: ["Composting", "Circular Economy"],
+    },
+    {
+      title: "Biodiversity Kitchen Garden Network",
+      category: "Community",
+      year: "2025",
+      desc: "Created a network of 50+ home kitchen gardens in Bengaluru using seeds and training from our farm.",
+      tags: ["Urban Farming", "Community"],
+    },
+    {
+      title: "Organic Traceability System",
+      category: "Innovation",
+      year: "2024",
+      desc: "Implemented full farm traceability using QR codes so customers can track produce from seed to plate.",
+      tags: ["Traceability", "Transparency"],
+    },
   ],
   skills: [
     { name: "Organic Vegetable Cultivation", level: 95 },
@@ -68,28 +116,82 @@ const data = {
     { name: "Composting & Soil Health", level: 90 },
     { name: "Crop Planning & Rotation", level: 88 },
     { name: "Biodynamic Farming", level: 85 },
-    { name: "Farm-to-Consumer Marketing", level: 82 }
+    { name: "Farm-to-Consumer Marketing", level: 82 },
   ],
   testimonials: [
-    { name: "Anita Rao", role: "Regular Customer", rating: 5, text: "The quality and taste of Mithun's organic vegetables are unmatched. My family loves the weekly box – everything is so fresh and flavorful.", date: "March 2026" },
-    { name: "Dr. Suresh Menon", role: "Customer & Doctor", rating: 5, text: "As a doctor, I appreciate the chemical-free produce. Mithun's farm has helped many of my patients improve their health through better nutrition.", date: "February 2026" },
-    { name: "Ramesh & Lakshmi", role: "Restaurant Owners", rating: 5, text: "Reliable bulk supply with excellent traceability. Our customers always notice and appreciate the superior taste of ingredients from this farm.", date: "January 2026" },
-    { name: "Priya Nair", role: "Home Gardener", rating: 4, text: "Attended the farm workshop and learned so much. The seeds and guidance helped me start my own successful kitchen garden.", date: "December 2025" }
+    {
+      name: "Anita Rao",
+      role: "Regular Customer",
+      rating: 5,
+      text: "The quality and taste of Mithun's organic vegetables are unmatched. My family loves the weekly box – everything is so fresh and flavorful.",
+      date: "March 2026",
+    },
+    {
+      name: "Dr. Suresh Menon",
+      role: "Customer & Doctor",
+      rating: 5,
+      text: "As a doctor, I appreciate the chemical-free produce. Mithun's farm has helped many of my patients improve their health through better nutrition.",
+      date: "February 2026",
+    },
+    {
+      name: "Ramesh & Lakshmi",
+      role: "Restaurant Owners",
+      rating: 5,
+      text: "Reliable bulk supply with excellent traceability. Our customers always notice and appreciate the superior taste of ingredients from this farm.",
+      date: "January 2026",
+    },
+    {
+      name: "Priya Nair",
+      role: "Home Gardener",
+      rating: 4,
+      text: "Attended the farm workshop and learned so much. The seeds and guidance helped me start my own successful kitchen garden.",
+      date: "December 2025",
+    },
   ],
   faq: [
-    { q: "Where is your farm located?", a: "Our farm is located near Devanahalli, about 40 km from central Bengaluru. We offer home delivery across Bengaluru and farm visits by appointment." },
-    { q: "Are your products certified organic?", a: "Yes, the farm is NPOP certified and also follows Participatory Guarantee System (PGS) standards for transparency and trust." },
-    { q: "Do you deliver weekly subscription boxes?", a: "Yes, we offer customizable weekly and fortnightly organic produce boxes. You can choose your preferred vegetables and fruits." },
-    { q: "Can I visit the farm?", a: "Absolutely! We conduct guided farm tours and workshops every weekend. Advance booking is required." },
-    { q: "Do you supply to restaurants and corporates?", a: "Yes, we provide bulk organic produce to restaurants, cafes, and corporate kitchens with reliable weekly deliveries." }
+    {
+      q: "Where is your farm located?",
+      a: "Our farm is located near Devanahalli, about 40 km from central Bengaluru. We offer home delivery across Bengaluru and farm visits by appointment.",
+    },
+    {
+      q: "Are your products certified organic?",
+      a: "Yes, the farm is NPOP certified and also follows Participatory Guarantee System (PGS) standards for transparency and trust.",
+    },
+    {
+      q: "Do you deliver weekly subscription boxes?",
+      a: "Yes, we offer customizable weekly and fortnightly organic produce boxes. You can choose your preferred vegetables and fruits.",
+    },
+    {
+      q: "Can I visit the farm?",
+      a: "Absolutely! We conduct guided farm tours and workshops every weekend. Advance booking is required.",
+    },
+    {
+      q: "Do you supply to restaurants and corporates?",
+      a: "Yes, we provide bulk organic produce to restaurants, cafes, and corporate kitchens with reliable weekly deliveries.",
+    },
   ],
   gallery: [
-    { url: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80", cat: "Fields" },
-    { url: "https://images.unsplash.com/photo-1500595046743-cd271d694394?w=600&q=80", cat: "Harvest" },
-    { url: "https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?w=600&q=80", cat: "Farm Life" },
-    { url: "https://images.unsplash.com/photo-1607305387299-a3d9611cd469?w=600&q=80", cat: "Produce" },
-    { url: "https://images.unsplash.com/photo-1600585154340-be6161a56a9c?w=600&q=80", cat: "Community" }
-  ]
+    {
+      url: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80",
+      cat: "Fields",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1500595046743-cd271d694394?w=600&q=80",
+      cat: "Harvest",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1592982537447-6f2a6a0c7c18?w=600&q=80",
+      cat: "Farm Life",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1607305387299-a3d9611cd469?w=600&q=80",
+      cat: "Produce",
+    },
+    {
+      url: "https://images.unsplash.com/photo-1600585154340-be6161a56a9c?w=600&q=80",
+      cat: "Community",
+    },
+  ],
 };
 
 const G = "#15803d";
@@ -269,7 +371,15 @@ const styles = `
 function useIntersection(ref) {
   const [visible, setVisible] = useState(false);
   useEffect(() => {
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setVisible(true); obs.disconnect(); } }, { threshold: 0.15 });
+    const obs = new IntersectionObserver(
+      ([e]) => {
+        if (e.isIntersecting) {
+          setVisible(true);
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.15 },
+    );
     if (ref.current) obs.observe(ref.current);
     return () => obs.disconnect();
   }, []);
@@ -286,7 +396,10 @@ function SkillBar({ name, level }) {
         <span className="skill-pct">{level}%</span>
       </div>
       <div className="skill-track">
-        <div className="skill-bar" style={{ width: vis ? `${level}%` : "0%" }} />
+        <div
+          className="skill-bar"
+          style={{ width: vis ? `${level}%` : "0%" }}
+        />
       </div>
     </div>
   );
@@ -313,7 +426,10 @@ export default function FarmerLanding() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const t = setInterval(() => setSlide(s => (s + 1) % data.hero.carousel?.length), 4500);
+    const t = setInterval(
+      () => setSlide((s) => (s + 1) % data.hero.carousel?.length),
+      4500,
+    );
     return () => clearInterval(t);
   }, []);
 
@@ -334,15 +450,37 @@ export default function FarmerLanding() {
 
       {/* NAV */}
       <nav className={`farm-nav${navScrolled ? " scrolled" : ""}`}>
-        <div className="farm-logo">Organic<span>Roots</span></div>
+        <div className="farm-logo">
+          Organic<span>Roots</span>
+        </div>
         <div className={`farm-nav-links${menuOpen ? " open" : ""}`}>
-          {["about","services","projects","gallery","contact"]?.map(s => (
-            <a key={s} href={`#${s}`} onClick={e => { e.preventDefault(); scrollTo(s); }}>{s.charAt(0).toUpperCase()+s.slice(1)}</a>
+          {["about", "services", "projects", "gallery", "contact"]?.map((s) => (
+            <a
+              key={s}
+              href={`#${s}`}
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo(s);
+              }}
+            >
+              {s.charAt(0).toUpperCase() + s.slice(1)}
+            </a>
           ))}
-          <a href="#contact" className="nav-cta" onClick={e => { e.preventDefault(); scrollTo("contact"); }}>Order Now</a>
+          <a
+            href="#contact"
+            className="nav-cta"
+            onClick={(e) => {
+              e.preventDefault();
+              scrollTo("contact");
+            }}
+          >
+            Order Now
+          </a>
         </div>
         <button className="ham" onClick={() => setMenuOpen(!menuOpen)}>
-          <span/><span/><span/>
+          <span />
+          <span />
+          <span />
         </button>
       </nav>
 
@@ -350,19 +488,44 @@ export default function FarmerLanding() {
       <section className="farm-hero">
         <div className="hero-bg">
           {data.hero.carousel?.map((src, i) => (
-            <img key={i} src={src} alt="" style={{ opacity: i === slide ? 1 : 0 }} />
+            <img
+              key={i}
+              src={src}
+              alt=""
+              style={{ opacity: i === slide ? 1 : 0 }}
+            />
           ))}
           <div className="hero-overlay" />
         </div>
         <div className="hero-content">
           <div className="hero-badge">NPOP Certified · Bengaluru</div>
           <h1 className="hero-h1">
-            Growing <em>Goodness</em><br />Naturally
+            Growing <em>Goodness</em>
+            <br />
+            Naturally
           </h1>
           <p className="hero-sub">{data.hero.subheading}</p>
           <div className="hero-btns">
-            <a href="#services" className="btn-primary" onClick={e => { e.preventDefault(); scrollTo("services"); }}>🛒 Shop Fresh Produce</a>
-            <a href="#contact" className="btn-outline" onClick={e => { e.preventDefault(); scrollTo("contact"); }}>📍 Visit Our Farm</a>
+            <a
+              href="#services"
+              className="btn-primary"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo("services");
+              }}
+            >
+              🛒 Shop Fresh Produce
+            </a>
+            <a
+              href="#contact"
+              className="btn-outline"
+              onClick={(e) => {
+                e.preventDefault();
+                scrollTo("contact");
+              }}
+            >
+              📍 Visit Our Farm
+            </a>
           </div>
           <div className="hero-stats">
             {data.hero.stats?.map((s, i) => (
@@ -375,7 +538,11 @@ export default function FarmerLanding() {
         </div>
         <div className="hero-dots">
           {data.hero.carousel?.map((_, i) => (
-            <button key={i} className={`hero-dot${i === slide ? " active" : ""}`} onClick={() => setSlide(i)} />
+            <button
+              key={i}
+              className={`hero-dot${i === slide ? " active" : ""}`}
+              onClick={() => setSlide(i)}
+            />
           ))}
         </div>
       </section>
@@ -384,7 +551,11 @@ export default function FarmerLanding() {
       <section className="section" id="about">
         <div className="about-grid">
           <div className="about-img-wrap">
-            <img src={data.about.image} alt="Mithun K J" className="about-img" />
+            <img
+              src={data.about.image}
+              alt="Mithun K J"
+              className="about-img"
+            />
             <div className="about-badge">
               <strong>12+</strong>
               <span>Years Farming</span>
@@ -392,7 +563,11 @@ export default function FarmerLanding() {
           </div>
           <div>
             <span className="section-label">About Mithun K J</span>
-            <h2 className="section-title">A Third-Generation<br />Organic Farmer</h2>
+            <h2 className="section-title">
+              A Third-Generation
+              <br />
+              Organic Farmer
+            </h2>
             <p className="section-sub">{data.about.description}</p>
             <div className="about-highlights">
               {data.about.highlights?.map((h, i) => (
@@ -411,7 +586,11 @@ export default function FarmerLanding() {
       <section className="section section-alt" id="services">
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <span className="section-label">What We Offer</span>
-          <h2 className="section-title">Fresh From Our Farm<br />to Your Table</h2>
+          <h2 className="section-title">
+            Fresh From Our Farm
+            <br />
+            to Your Table
+          </h2>
         </div>
         <div className="services-grid">
           {data.services?.map((s, i) => (
@@ -422,7 +601,11 @@ export default function FarmerLanding() {
                 <h3 className="service-title">{s.title}</h3>
                 <p className="service-desc">{s.description}</p>
                 <div className="service-features">
-                  {s.features?.map((f, j) => <span key={j} className="feat-tag">{f}</span>)}
+                  {s.features?.map((f, j) => (
+                    <span key={j} className="feat-tag">
+                      {f}
+                    </span>
+                  ))}
                 </div>
                 <div className="service-footer">
                   <span className="service-price">{s.price}</span>
@@ -438,16 +621,25 @@ export default function FarmerLanding() {
       <section className="section" id="projects">
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <span className="section-label">Our Work</span>
-          <h2 className="section-title">Farm Initiatives<br />& Projects</h2>
+          <h2 className="section-title">
+            Farm Initiatives
+            <br />& Projects
+          </h2>
         </div>
         <div className="projects-grid">
           {data.projects?.map((p, i) => (
             <div key={i} className="proj-card">
-              <span className="proj-year">{p.year} · {p.category}</span>
+              <span className="proj-year">
+                {p.year} · {p.category}
+              </span>
               <h3 className="proj-title">{p.title}</h3>
               <p className="proj-desc">{p.desc}</p>
               <div className="proj-tags">
-                {p.tags?.map((t, j) => <span key={j} className="proj-tag">{t}</span>)}
+                {p.tags?.map((t, j) => (
+                  <span key={j} className="proj-tag">
+                    {t}
+                  </span>
+                ))}
               </div>
             </div>
           ))}
@@ -458,10 +650,15 @@ export default function FarmerLanding() {
       <section className="section section-alt">
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <span className="section-label">Expertise</span>
-          <h2 className="section-title">Farming Skills &<br />Specialisations</h2>
+          <h2 className="section-title">
+            Farming Skills &<br />
+            Specialisations
+          </h2>
         </div>
         <div className="skills-wrap">
-          {data.skills?.map((s, i) => <SkillBar key={i} name={s.name} level={s.level} />)}
+          {data.skills?.map((s, i) => (
+            <SkillBar key={i} name={s.name} level={s.level} />
+          ))}
         </div>
       </section>
 
@@ -469,18 +666,33 @@ export default function FarmerLanding() {
       <section className="section">
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <span className="section-label">What Families Say</span>
-          <h2 className="section-title">Trusted by 2,500+<br />Happy Families</h2>
+          <h2 className="section-title">
+            Trusted by 2,500+
+            <br />
+            Happy Families
+          </h2>
         </div>
         <div className="testimonials-grid">
           {data.testimonials?.map((t, i) => (
             <div key={i} className="testi-card">
-              <div className="testi-stars">{"★".repeat(t.rating)}{"☆".repeat(5 - t.rating)}</div>
+              <div className="testi-stars">
+                {"★".repeat(t.rating)}
+                {"☆".repeat(5 - t.rating)}
+              </div>
               <p className="testi-text">"{t.text}"</p>
               <div className="testi-author">
-                <div className="testi-avatar">{t.name.split(" ")?.map(w => w[0]).slice(0,2).join("")}</div>
+                <div className="testi-avatar">
+                  {t.name
+                    .split(" ")
+                    ?.map((w) => w[0])
+                    .slice(0, 2)
+                    .join("")}
+                </div>
                 <div>
                   <div className="testi-name">{t.name}</div>
-                  <div className="testi-role">{t.role} · {t.date}</div>
+                  <div className="testi-role">
+                    {t.role} · {t.date}
+                  </div>
                 </div>
               </div>
             </div>
@@ -492,7 +704,11 @@ export default function FarmerLanding() {
       <section className="section section-alt" id="gallery">
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <span className="section-label">Farm Gallery</span>
-          <h2 className="section-title">Life at<br />Organic Roots Farm</h2>
+          <h2 className="section-title">
+            Life at
+            <br />
+            Organic Roots Farm
+          </h2>
         </div>
         <div className="gallery-grid">
           {data.gallery?.map((g, i) => (
@@ -506,11 +722,19 @@ export default function FarmerLanding() {
       {/* FAQ */}
       <section className="section">
         <div style={{ textAlign: "center", marginBottom: 8 }}>
-          <span className="section-label" style={{ display: "inline-block" }}>Got Questions?</span>
-          <h2 className="section-title">Frequently Asked<br />Questions</h2>
+          <span className="section-label" style={{ display: "inline-block" }}>
+            Got Questions?
+          </span>
+          <h2 className="section-title">
+            Frequently Asked
+            <br />
+            Questions
+          </h2>
         </div>
         <div className="faq-wrap">
-          {data.faq?.map((f, i) => <FaqItem key={i} q={f.q} a={f.a} />)}
+          {data.faq?.map((f, i) => (
+            <FaqItem key={i} q={f.q} a={f.a} />
+          ))}
         </div>
       </section>
 
@@ -518,7 +742,11 @@ export default function FarmerLanding() {
       <section className="section section-alt" id="contact">
         <div style={{ maxWidth: 1200, margin: "0 auto" }}>
           <span className="section-label">Get in Touch</span>
-          <h2 className="section-title">Visit the Farm or<br />Place an Order</h2>
+          <h2 className="section-title">
+            Visit the Farm or
+            <br />
+            Place an Order
+          </h2>
         </div>
         <div className="contact-grid">
           <div className="contact-info">
@@ -526,7 +754,11 @@ export default function FarmerLanding() {
               <div className="contact-icon">📍</div>
               <div>
                 <div className="contact-label">Farm Address</div>
-                <div className="contact-val">Organic Roots Farm, Devanahalli Road<br />Bengaluru Rural, Karnataka 562110</div>
+                <div className="contact-val">
+                  Organic Roots Farm, Devanahalli Road
+                  <br />
+                  Bengaluru Rural, Karnataka 562110
+                </div>
               </div>
             </div>
             <div className="contact-row">
@@ -547,7 +779,11 @@ export default function FarmerLanding() {
               <div className="contact-icon">🕐</div>
               <div>
                 <div className="contact-label">Working Hours</div>
-                <div className="contact-val">Mon – Sat: 8:00 AM – 6:00 PM<br />Sunday: Farm Visits by Appointment</div>
+                <div className="contact-val">
+                  Mon – Sat: 8:00 AM – 6:00 PM
+                  <br />
+                  Sunday: Farm Visits by Appointment
+                </div>
               </div>
             </div>
             <div style={{ marginTop: 24 }}>
@@ -555,14 +791,31 @@ export default function FarmerLanding() {
             </div>
           </div>
           <div className="contact-form">
-            <h3 style={{ fontFamily: "'Playfair Display', serif", fontSize: "1.3rem", marginBottom: 24, color: "#1a2e1a" }}>Send us a Message</h3>
+            <h3
+              style={{
+                fontFamily: "'Playfair Display', serif",
+                fontSize: "1.3rem",
+                marginBottom: 24,
+                color: "#1a2e1a",
+              }}
+            >
+              Send us a Message
+            </h3>
             <div className="form-group">
               <label className="form-label">Your Name</label>
-              <input className="form-input" type="text" placeholder="Enter your name" />
+              <input
+                className="form-input"
+                type="text"
+                placeholder="Enter your name"
+              />
             </div>
             <div className="form-group">
               <label className="form-label">Phone / Email</label>
-              <input className="form-input" type="text" placeholder="Phone number or email" />
+              <input
+                className="form-input"
+                type="text"
+                placeholder="Phone number or email"
+              />
             </div>
             <div className="form-group">
               <label className="form-label">Interested In</label>
@@ -575,7 +828,10 @@ export default function FarmerLanding() {
             </div>
             <div className="form-group">
               <label className="form-label">Message</label>
-              <textarea className="form-input form-textarea" placeholder="Tell us about your requirements…" />
+              <textarea
+                className="form-input form-textarea"
+                placeholder="Tell us about your requirements…"
+              />
             </div>
             <button className="form-btn">Send Message 🌿</button>
           </div>
@@ -587,31 +843,67 @@ export default function FarmerLanding() {
         <div className="footer-grid">
           <div>
             <div className="footer-brand">OrganicRoots Farm</div>
-            <p className="footer-desc">Third-generation organic farm near Bengaluru, dedicated to regenerative agriculture, soil health, and bringing the purest produce to your family.</p>
+            <p className="footer-desc">
+              Third-generation organic farm near Bengaluru, dedicated to
+              regenerative agriculture, soil health, and bringing the purest
+              produce to your family.
+            </p>
           </div>
           <div>
             <div className="footer-head">Quick Links</div>
             <ul className="footer-links">
-              {["About", "Services", "Projects", "Gallery", "Contact"]?.map(l => (
-                <li key={l}><a href={`#${l.toLowerCase()}`} onClick={e => { e.preventDefault(); scrollTo(l.toLowerCase()); }}>{l}</a></li>
-              ))}
+              {["About", "Services", "Projects", "Gallery", "Contact"]?.map(
+                (l) => (
+                  <li key={l}>
+                    <a
+                      href={`#${l.toLowerCase()}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        scrollTo(l.toLowerCase());
+                      }}
+                    >
+                      {l}
+                    </a>
+                  </li>
+                ),
+              )}
             </ul>
           </div>
           <div>
             <div className="footer-head">Certifications</div>
             <ul className="footer-links">
-              <li><a href="#">NPOP Organic Certified</a></li>
-              <li><a href="#">PGS Certification</a></li>
-              <li><a href="#">APEDA Registered</a></li>
-              <li><a href="#">KVK Trained Farmer</a></li>
+              <li>
+                <a href="#">NPOP Organic Certified</a>
+              </li>
+              <li>
+                <a href="#">PGS Certification</a>
+              </li>
+              <li>
+                <a href="#">APEDA Registered</a>
+              </li>
+              <li>
+                <a href="#">KVK Trained Farmer</a>
+              </li>
             </ul>
           </div>
         </div>
         <div className="footer-bottom">
-          <span className="footer-copy">© 2026 Organic Roots Farm · Mithun K J · Bengaluru</span>
+          <span className="footer-copy">
+            © 2026 Organic Roots Farm · Mithun K J · Bengaluru
+          </span>
           <div style={{ display: "flex", gap: 14 }}>
-            {["Instagram", "Facebook", "LinkedIn"]?.map(p => (
-              <a key={p} href="#" style={{ fontSize: 13, color: "rgba(255,255,255,0.5)", textDecoration: "none" }}>{p}</a>
+            {["Instagram", "Facebook", "LinkedIn"]?.map((p) => (
+              <a
+                key={p}
+                href="#"
+                style={{
+                  fontSize: 13,
+                  color: "rgba(255,255,255,0.5)",
+                  textDecoration: "none",
+                }}
+              >
+                {p}
+              </a>
             ))}
           </div>
         </div>
