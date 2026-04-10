@@ -244,6 +244,7 @@ const CSS = `
 
   .nav-desktop { display: flex; gap: 24px; align-items: center; }
   .nav-hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; }
+  .nav-bar {margin: 0 auto;}
   .ham-bar { width: 22px; height: 2px; transition: all 0.25s; }
   .mobile-drawer { display: none; position: fixed; top: 64px; left: 0; right: 0; background: #fff; border-bottom: 1px solid #e2e8f0; z-index: 99; flex-direction: column; padding: 8px 0 20px; }
   .mobile-drawer.open { display: flex; }
@@ -272,6 +273,7 @@ const CSS = `
 
   /* Tablet */
   @media (max-width: 900px) {
+    .nav-bar { margin:0;}
     .nav-desktop { display: none; }
     .nav-hamburger { display: flex; }
 
@@ -296,6 +298,7 @@ const CSS = `
 
   /* Mobile */
   @media (max-width: 560px) {
+  .nav-bar { margin:0;}
     .hero-btns { flex-direction: column; }
     .hero-btns > * { width: 100%; text-align: center; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
@@ -414,14 +417,15 @@ function Navbar({ name }) {
         <div
           style={{
             maxWidth: 1100,
-            margin: "0 auto",
+            // margin:"0 auto",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
             height: 64,
           }}
+          className="nav-bar"
         >
-          {name && (
+          {/* {name && (
             <span
               style={{
                 fontWeight: 700,
@@ -431,7 +435,7 @@ function Navbar({ name }) {
             >
               {name.charAt(0)}
             </span>
-          )}
+          )} */}
           <div className="nav-desktop">
             {NAV_LINKS?.map((l) => (
               <button

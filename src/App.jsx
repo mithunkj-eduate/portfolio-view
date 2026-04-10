@@ -18,8 +18,8 @@ export default function App() {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-          <Route path="/professional" element={<ProfessionalUserProfile />} />
-          <Route path="/farmer" element={<FarmerUserProfile />} />
+          <Route path="/professional/:id" element={<ProfessionalUserProfile />} />
+          <Route path="/farmer/:id" element={<FarmerUserProfile />} />
 
         <Route path="/cursorportfolio/:id" element={<CursorUserProfile />} />
         <Route
