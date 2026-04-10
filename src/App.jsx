@@ -9,6 +9,7 @@ import { useContext } from "react";
 import { AppContext } from "./context/context";
 import PreviewPage from "./components/apps/PreviewPage";
 import ProfessionalUserProfile from "./components/professional/ProfessionalUserProfile";
+import FarmerUserProfile from "./components/farmer/FarmerUserProfile";
 
 export default function App() {
   const { state } = useContext(AppContext);
@@ -18,6 +19,8 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
           <Route path="/professional" element={<ProfessionalUserProfile />} />
+          <Route path="/farmer" element={<FarmerUserProfile />} />
+
         <Route path="/cursorportfolio/:id" element={<CursorUserProfile />} />
         <Route
           path="/bubbleportfolio/:id"
