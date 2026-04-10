@@ -1,5 +1,5 @@
 export const convertDriveToImageUrl = (driveUrl) => {
-  const driveImage = driveUrl.includes("drive.google.com");
+  const driveImage = driveUrl ? driveUrl.includes("drive.google.com") : "";
   if (driveImage) {
     // Extract file ID using regex
     const match = driveUrl.match(/\/d\/([a-zA-Z0-9_-]+)/);
