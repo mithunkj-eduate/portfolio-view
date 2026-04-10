@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import { convertDriveToImageUrl } from "../../utly/utlyFunction";
 
-const data = {
+const data1 = {
   meta: {
     name: "Dr. Priya Sharma",
     tagline: "Specialist in Cardiology & Internal Medicine",
@@ -235,6 +236,8 @@ const NAV_LINKS = [
 ];
 
 const CSS = `
+  @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+
   *, *::before, *::after { box-sizing: border-box; }
   body { margin: 0; }
   html { scroll-behavior: smooth; }
@@ -514,7 +517,7 @@ function Navbar({ name }) {
 }
 
 /* HERO */
-function Hero() {
+function Hero({data}) {
   const [slide, setSlide] = useState(0);
   const imgs = data.hero.carousel;
   useEffect(() => {
@@ -701,7 +704,7 @@ function Hero() {
 }
 
 /* ABOUT */
-function About() {
+function About({data}) {
   const d = data.about;
   return (
     <section id="about" className="sec-pad" style={{ background: "#f8fafc" }}>
@@ -709,7 +712,7 @@ function About() {
         <div className="about-grid">
           <div className="about-img-col" style={{ position: "relative" }}>
             <img
-              src={d.image}
+              src={convertDriveToImageUrl(d.image)}
               alt={d.title}
               style={{
                 width: "100%",
@@ -812,7 +815,7 @@ function About() {
 }
 
 /* SERVICES */
-function Services() {
+function Services({data}) {
   return (
     <section id="services" className="sec-pad">
       <Wrap>
@@ -844,7 +847,7 @@ function Services() {
             >
               <div style={{ position: "relative" }}>
                 <img
-                  src={s.image}
+                  src={convertDriveToImageUrl(s.image)}
                   alt={s.title}
                   style={{ width: "100%", height: 190, objectFit: "cover" }}
                 />
@@ -941,7 +944,7 @@ function Services() {
 }
 
 /* SKILLS */
-function Skills() {
+function Skills({data}) {
   return (
     <section id="skills" className="sec-pad" style={{ background: "#f8fafc" }}>
       <Wrap>
@@ -1084,7 +1087,7 @@ function Skills() {
 }
 
 /* GALLERY */
-function Gallery() {
+function Gallery({data}) {
   const cats = ["All", ...new Set(data.gallery?.map((g) => g.category))];
   const [active, setActive] = useState("All");
   const filtered =
@@ -1136,7 +1139,7 @@ function Gallery() {
               }}
             >
               <img
-                src={g.url}
+                src={convertDriveToImageUrl(g.url)}
                 alt={g.alt}
                 style={{
                   width: "100%",
@@ -1173,7 +1176,7 @@ function Gallery() {
 }
 
 /* TESTIMONIALS */
-function Testimonials() {
+function Testimonials({data}) {
   return (
     <section
       id="testimonials"
@@ -1271,7 +1274,7 @@ function Testimonials() {
 }
 
 /* FAQ */
-function FAQ() {
+function FAQ({data}) {
   const [open, setOpen] = useState(null);
   return (
     <section id="faq" className="sec-pad">
@@ -1342,7 +1345,7 @@ function FAQ() {
 }
 
 /* CONTACT */
-function Contact() {
+function Contact({data}) {
   const c = data.contact;
   return (
     <section id="contact" className="sec-pad" style={{ background: "#0f172a" }}>
@@ -1574,7 +1577,7 @@ function ColorPicker({ color, onChange }) {
 }
 
 /* APP */
-export default function ProfessionalProfile() {
+export default function ProfessionalProfile({data}) {
   const [accent, setAccent] = useState(data.meta.accentColor);
   useAccent(accent);
   return (
@@ -1583,14 +1586,14 @@ export default function ProfessionalProfile() {
     >
       <style>{`:root{--accent:${accent};--accent-light:${accent}22;}${CSS}`}</style>
       <Navbar name={data.meta.name} />
-      <Hero />
-      <About />
-      <Services />
-      <Skills />
-      <Gallery />
-      <Testimonials />
-      <FAQ />
-      <Contact />
+      <Hero  data ={data}/>
+      <About  data ={data} />
+      <Services  data ={data}/>
+      <Skills data ={data} />
+      <Gallery  data ={data}/>
+      <Testimonials data ={data} />
+      <FAQ  data ={data}/>
+      <Contact  data ={data}/>
       <footer
         style={{
           background: "#020617",
