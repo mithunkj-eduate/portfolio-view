@@ -234,7 +234,7 @@ export default function FarmerProfile({ data }) {
 
   useEffect(() => {
     const t = setInterval(
-      () => setSlide((s) => (s + 1) % data.hero.carousel?.length),
+      () => setSlide((s) => (s + 1) % data.hero?.carousel?.length),
       4500,
     );
     return () => clearInterval(t);
@@ -292,358 +292,388 @@ export default function FarmerProfile({ data }) {
       </nav>
 
       {/* HERO */}
-      <section className="farm-hero">
-        <div className="hero-bg">
-          {data.hero.carousel?.map((src, i) => (
-            <img
-              key={i}
-              src={convertDriveToImageUrl(src)}
-              alt=""
-              style={{ opacity: i === slide ? 1 : 0 }}
-            />
-          ))}
-          <div className="hero-overlay" />
-        </div>
-        <div className="hero-content">
-          <div className="hero-badge">NPOP Certified · Bengaluru</div>
-          <h1 className="hero-h1">
-            Growing <em>Goodness</em>
-            <br />
-            Naturally
-          </h1>
-          <p className="hero-sub">{data.hero.subheading}</p>
-          <div className="hero-btns">
-            <a
-              href="#services"
-              className="btn-primary"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo("services");
-              }}
-            >
-              🛒 Shop Fresh Produce
-            </a>
-            <a
-              href="#contact"
-              className="btn-outline"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo("contact");
-              }}
-            >
-              📍 Visit Our Farm
-            </a>
-          </div>
-          <div className="hero-stats">
-            {data.hero.stats?.map((s, i) => (
-              <div key={i} className="stat-item">
-                <strong className="stat-val">{s.value}</strong>
-                <span className="stat-lab">{s.label}</span>
-              </div>
+      {data.hero && (
+        <section className="farm-hero">
+          <div className="hero-bg">
+            {data.hero?.carousel?.map((src, i) => (
+              <img
+                key={i}
+                src={convertDriveToImageUrl(src)}
+                alt=""
+                style={{ opacity: i === slide ? 1 : 0 }}
+              />
             ))}
+            <div className="hero-overlay" />
           </div>
-        </div>
-        <div className="hero-dots">
-          {data.hero.carousel?.map((_, i) => (
-            <button
-              key={i}
-              className={`hero-dot${i === slide ? " active" : ""}`}
-              onClick={() => setSlide(i)}
-            />
-          ))}
-        </div>
-      </section>
-
-      {/* ABOUT */}
-      <section className="section" id="about">
-        <div className="about-grid">
-          <div className="about-img-wrap">
-            <img
-              src={convertDriveToImageUrl(data.about.image)}
-              alt="Mithun K J"
-              className="about-img"
-            />
-            <div className="about-badge">
-              <strong>12+</strong>
-              <span>Years Farming</span>
-            </div>
-          </div>
-          <div>
-            <span className="section-label">About Mithun K J</span>
-            <h2 className="section-title">
-              A Third-Generation
+          <div className="hero-content">
+            <div className="hero-badge">NPOP Certified · Bengaluru</div>
+            <h1 className="hero-h1">
+              Growing <em>Goodness</em>
               <br />
-              Organic Farmer
-            </h2>
-            <p className="section-sub">{data.about.description}</p>
-            <div className="about-highlights">
-              {data.about.highlights?.map((h, i) => (
-                <div key={i} className="highlight-card">
-                  <div className="highlight-icon">{h.icon}</div>
-                  <div className="highlight-title">{h.title}</div>
-                  <div className="highlight-val">{h.value}</div>
+              Naturally
+            </h1>
+            <p className="hero-sub">{data?.hero?.subheading}</p>
+            <div className="hero-btns">
+              <a
+                href="#services"
+                className="btn-primary"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo("services");
+                }}
+              >
+                🛒 Shop Fresh Produce
+              </a>
+              <a
+                href="#contact"
+                className="btn-outline"
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollTo("contact");
+                }}
+              >
+                📍 Visit Our Farm
+              </a>
+            </div>
+            <div className="hero-stats">
+              {data.hero?.stats?.map((s, i) => (
+                <div key={i} className="stat-item">
+                  <strong className="stat-val">{s.value}</strong>
+                  <span className="stat-lab">{s.label}</span>
                 </div>
               ))}
             </div>
           </div>
-        </div>
-      </section>
+          <div className="hero-dots">
+            {data.hero?.carousel?.map((_, i) => (
+              <button
+                key={i}
+                className={`hero-dot${i === slide ? " active" : ""}`}
+                onClick={() => setSlide(i)}
+              />
+            ))}
+          </div>
+        </section>
+      )}
 
-      {/* SERVICES */}
-      <section className="section section-alt" id="services">
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <span className="section-label">What We Offer</span>
-          <h2 className="section-title">
-            Fresh From Our Farm
-            <br />
-            to Your Table
-          </h2>
-        </div>
-        <div className="services-grid">
-          {data.services?.map((s, i) => (
-            <div key={i} className="service-card">
-              <img src={convertDriveToImageUrl(s.image)} alt={s.title} className="service-img" />
-              <div className="service-body">
-                <span className="service-badge">{s.badge}</span>
-                <h3 className="service-title">{s.title}</h3>
-                <p className="service-desc">{s.description}</p>
-                <div className="service-features">
-                  {s.features?.map((f, j) => (
-                    <span key={j} className="feat-tag">
-                      {f}
-                    </span>
-                  ))}
-                </div>
-                <div className="service-footer">
-                  <span className="service-price">{s.price}</span>
-                  <span className="service-dur">/ {s.duration}</span>
-                </div>
+      {/* ABOUT */}
+      {data.about && (
+        <section className="section" id="about">
+          <div className="about-grid">
+            <div className="about-img-wrap">
+              {data.about?.image && (
+                <img
+                  src={convertDriveToImageUrl(data.about.image)}
+                  alt="Mithun K J"
+                  className="about-img"
+                />
+              )}
+              <div className="about-badge">
+                <strong>12+</strong>
+                <span>Years Farming</span>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* PROJECTS */}
-      <section className="section" id="projects">
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <span className="section-label">Our Work</span>
-          <h2 className="section-title">
-            Farm Initiatives
-            <br />& Projects
-          </h2>
-        </div>
-        <div className="projects-grid">
-          {data.projects?.map((p, i) => (
-            <div key={i} className="proj-card">
-              <span className="proj-year">
-                {p.year} · {p.category}
-              </span>
-              <h3 className="proj-title">{p.title}</h3>
-              <p className="proj-desc">{p.desc}</p>
-              <div className="proj-tags">
-                {p.tags?.map((t, j) => (
-                  <span key={j} className="proj-tag">
-                    {t}
-                  </span>
+            <div>
+              <span className="section-label">About {data.about?.name}</span>
+              <h2 className="section-title">
+                A Third-Generation
+                <br />
+                Organic Farmer
+              </h2>
+              <p className="section-sub">{data.about?.description}</p>
+              <div className="about-highlights">
+                {data.about?.highlights?.map((h, i) => (
+                  <div key={i} className="highlight-card">
+                    <div className="highlight-icon">{h.icon}</div>
+                    <div className="highlight-title">{h.title}</div>
+                    <div className="highlight-val">{h.value}</div>
+                  </div>
                 ))}
               </div>
             </div>
-          ))}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
-      {/* SKILLS */}
-      <section className="section section-alt">
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <span className="section-label">Expertise</span>
-          <h2 className="section-title">
-            Farming Skills &<br />
-            Specialisations
-          </h2>
-        </div>
-        <div className="skills-wrap">
-          {data.skills?.map((s, i) => (
-            <SkillBar key={i} name={s.name} level={s.level} />
-          ))}
-        </div>
-      </section>
-
-      {/* TESTIMONIALS */}
-      <section className="section">
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <span className="section-label">What Families Say</span>
-          <h2 className="section-title">
-            Trusted by 2,500+
-            <br />
-            Happy Families
-          </h2>
-        </div>
-        <div className="testimonials-grid">
-          {data.testimonials?.map((t, i) => (
-            <div key={i} className="testi-card">
-              <div className="testi-stars">
-                {"★".repeat(t.rating)}
-                {"☆".repeat(5 - t.rating)}
-              </div>
-              <p className="testi-text">"{t.text}"</p>
-              <div className="testi-author">
-                <div className="testi-avatar">
-                  {t.name
-                    .split(" ")
-                    ?.map((w) => w[0])
-                    .slice(0, 2)
-                    .join("")}
-                </div>
-                <div>
-                  <div className="testi-name">{t.name}</div>
-                  <div className="testi-role">
-                    {t.role} · {t.date}
+      {/* SERVICES */}
+      {data.services && (
+        <section className="section section-alt" id="services">
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <span className="section-label">What We Offer</span>
+            <h2 className="section-title">
+              Fresh From Our Farm
+              <br />
+              to Your Table
+            </h2>
+          </div>
+          <div className="services-grid">
+            {data.services?.map((s, i) => (
+              <div key={i} className="service-card">
+                <img
+                  src={convertDriveToImageUrl(s.image)}
+                  alt={s.title}
+                  className="service-img"
+                />
+                <div className="service-body">
+                  <span className="service-badge">{s.badge}</span>
+                  <h3 className="service-title">{s.title}</h3>
+                  <p className="service-desc">{s.description}</p>
+                  <div className="service-features">
+                    {s?.features?.map((f, j) => (
+                      <span key={j} className="feat-tag">
+                        {f}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="service-footer">
+                    <span className="service-price">{s.price}</span>
+                    <span className="service-dur">/ {s.duration}</span>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* PROJECTS */}
+      {data.projects && (
+        <section className="section" id="projects">
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <span className="section-label">Our Work</span>
+            <h2 className="section-title">
+              Farm Initiatives
+              <br />& Projects
+            </h2>
+          </div>
+          <div className="projects-grid">
+            {data.projects?.map((p, i) => (
+              <div key={i} className="proj-card">
+                <span className="proj-year">
+                  {p.year} · {p.category}
+                </span>
+                <h3 className="proj-title">{p.title}</h3>
+                <p className="proj-desc">{p.description}</p>
+                <div className="proj-tags">
+                  {p.tags?.map((t, j) => (
+                    <span key={j} className="proj-tag">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* SKILLS */}
+      {data.skills && (
+        <section className="section section-alt">
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <span className="section-label">Expertise</span>
+            <h2 className="section-title">
+              Farming Skills &<br />
+              Specialisations
+            </h2>
+          </div>
+          <div className="skills-wrap">
+            {data?.skills?.map((s, i) => (
+              <SkillBar key={i} name={s.name} level={s.level} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* TESTIMONIALS */}
+      {data?.testimonials && (
+        <section className="section">
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <span className="section-label">What Families Say</span>
+            <h2 className="section-title">
+              Trusted by 2,500+
+              <br />
+              Happy Families
+            </h2>
+          </div>
+          <div className="testimonials-grid">
+            {data.testimonials?.map((t, i) => (
+              <div key={i} className="testi-card">
+                {t?.rating && (
+                  <div className="testi-stars">
+                    {"★".repeat(t.rating)}
+                    {"☆".repeat(5 - t.rating)}
+                  </div>
+                )}
+                <p className="testi-text">"{t.text}"</p>
+                {t?.name && t?.role && t?.data && (
+                  <div className="testi-author">
+                    <div className="testi-avatar">
+                      {t?.name
+                        .split(" ")
+                        ?.map((w) => w[0])
+                        .slice(0, 2)
+                        .join("")}
+                    </div>
+                    <div>
+                      <div className="testi-name">{t.name}</div>
+                      <div className="testi-role">
+                        {t.role} · {t.date}
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* GALLERY */}
-      <section className="section section-alt" id="gallery">
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <span className="section-label">Farm Gallery</span>
-          <h2 className="section-title">
-            Life at
-            <br />
-            Organic Roots Farm
-          </h2>
-        </div>
-        <div className="gallery-grid">
-          {data.gallery?.map((g, i) => (
-            <div key={i} className="gallery-item">
-              <img src={convertDriveToImageUrl(g.url)} alt={g.cat} />
-            </div>
-          ))}
-        </div>
-      </section>
+      {data.gallery && (
+        <section className="section section-alt" id="gallery">
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <span className="section-label">Farm Gallery</span>
+            <h2 className="section-title">
+              Life at
+              <br />
+              Organic Roots Farm
+            </h2>
+          </div>
+          <div className="gallery-grid">
+            {data.gallery?.map((g, i) => (
+              <div key={i} className="gallery-item">
+                {g.url && (
+                  <img src={convertDriveToImageUrl(g.url)} alt={g.category} />
+                )}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* FAQ */}
-      <section className="section">
-        <div style={{ textAlign: "center", marginBottom: 8 }}>
-          <span className="section-label" style={{ display: "inline-block" }}>
-            Got Questions?
-          </span>
-          <h2 className="section-title">
-            Frequently Asked
-            <br />
-            Questions
-          </h2>
-        </div>
-        <div className="faq-wrap">
-          {data.faq?.map((f, i) => (
-            <FaqItem key={i} q={f.q} a={f.a} />
-          ))}
-        </div>
-      </section>
+      {data.faq && (
+        <section className="section">
+          <div style={{ textAlign: "center", marginBottom: 8 }}>
+            <span className="section-label" style={{ display: "inline-block" }}>
+              Got Questions?
+            </span>
+            <h2 className="section-title">
+              Frequently Asked
+              <br />
+              Questions
+            </h2>
+          </div>
+          <div className="faq-wrap">
+            {data.faq?.map((f, i) => (
+              <FaqItem key={i} q={f.question} a={f.answer} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {/* CONTACT */}
-      <section className="section section-alt" id="contact">
-        <div style={{ maxWidth: 1200, margin: "0 auto" }}>
-          <span className="section-label">Get in Touch</span>
-          <h2 className="section-title">
-            Visit the Farm or
-            <br />
-            Place an Order
-          </h2>
-        </div>
-        <div className="contact-grid">
-          <div className="contact-info">
-            <div className="contact-row">
-              <div className="contact-icon">📍</div>
-              <div>
-                <div className="contact-label">Farm Address</div>
-                <div className="contact-val">
-                  Organic Roots Farm, Devanahalli Road
-                  <br />
-                  Bengaluru Rural, Karnataka 562110
+      {data.contact && (
+        <section className="section section-alt" id="contact">
+          <div style={{ maxWidth: 1200, margin: "0 auto" }}>
+            <span className="section-label">Get in Touch</span>
+            <h2 className="section-title">
+              Visit the Farm or
+              <br />
+              Place an Order
+            </h2>
+          </div>
+          <div className="contact-grid">
+            <div className="contact-info">
+              <div className="contact-row">
+                <div className="contact-icon">📍</div>
+                <div>
+                  <div className="contact-label">Farm Address</div>
+                  <div className="contact-val">{data.contact?.address}</div>
                 </div>
               </div>
-            </div>
-            <div className="contact-row">
-              <div className="contact-icon">📞</div>
-              <div>
-                <div className="contact-label">Phone / WhatsApp</div>
-                <div className="contact-val">+91 98765 43210</div>
-              </div>
-            </div>
-            <div className="contact-row">
-              <div className="contact-icon">✉️</div>
-              <div>
-                <div className="contact-label">Email</div>
-                <div className="contact-val">mithun@organicroots.in</div>
-              </div>
-            </div>
-            <div className="contact-row">
-              <div className="contact-icon">🕐</div>
-              <div>
-                <div className="contact-label">Working Hours</div>
-                <div className="contact-val">
-                  Mon – Sat: 8:00 AM – 6:00 PM
-                  <br />
-                  Sunday: Farm Visits by Appointment
+              <div className="contact-row">
+                <div className="contact-icon">📞</div>
+                <div>
+                  <div className="contact-label">Phone / WhatsApp</div>
+                  <div className="contact-val">{data.contact?.phone}</div>
                 </div>
               </div>
+              <div className="contact-row">
+                <div className="contact-icon">✉️</div>
+                <div>
+                  <div className="contact-label">Email</div>
+                  <div className="contact-val">{data.contact?.email}</div>
+                </div>
+              </div>
+              {data.contact?.workingHours && (
+                <div className="contact-row">
+                  <div className="contact-icon">🕐</div>
+                  <div>
+                    <div className="contact-label">Working Hours</div>
+                    <div className="contact-val">
+                      Mon – Sat: 8:00 AM – 6:00 PM
+                      <br />
+                      Sunday: Farm Visits by Appointment
+                    </div>
+                  </div>
+                </div>
+              )}
+              <div style={{ marginTop: 24 }}>
+                <span className="cert-badge">
+                  🏆 NPOP Certified Organic Farm
+                </span>
+              </div>
             </div>
-            <div style={{ marginTop: 24 }}>
-              <span className="cert-badge">🏆 NPOP Certified Organic Farm</span>
+            <div className="contact-form">
+              <h3
+                style={{
+                  fontFamily: "'Playfair Display', serif",
+                  fontSize: "1.3rem",
+                  marginBottom: 24,
+                  color: "#1a2e1a",
+                }}
+              >
+                Send us a Message
+              </h3>
+              <div className="form-group">
+                <label className="form-label">Your Name</label>
+                <input
+                  className="form-input"
+                  type="text"
+                  placeholder="Enter your name"
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Phone / Email</label>
+                <input
+                  className="form-input"
+                  type="text"
+                  placeholder="Phone number or email"
+                />
+              </div>
+              <div className="form-group">
+                <label className="form-label">Interested In</label>
+                <select className="form-input">
+                  <option>Fresh Produce Delivery</option>
+                  <option>Farm Tour / Workshop</option>
+                  <option>Bulk Supply (B2B)</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div className="form-group">
+                <label className="form-label">Message</label>
+                <textarea
+                  className="form-input form-textarea"
+                  placeholder="Tell us about your requirements…"
+                />
+              </div>
+              <button className="form-btn">Send Message 🌿</button>
             </div>
           </div>
-          <div className="contact-form">
-            <h3
-              style={{
-                fontFamily: "'Playfair Display', serif",
-                fontSize: "1.3rem",
-                marginBottom: 24,
-                color: "#1a2e1a",
-              }}
-            >
-              Send us a Message
-            </h3>
-            <div className="form-group">
-              <label className="form-label">Your Name</label>
-              <input
-                className="form-input"
-                type="text"
-                placeholder="Enter your name"
-              />
-            </div>
-            <div className="form-group">
-              <label className="form-label">Phone / Email</label>
-              <input
-                className="form-input"
-                type="text"
-                placeholder="Phone number or email"
-              />
-            </div>
-            <div className="form-group">
-              <label className="form-label">Interested In</label>
-              <select className="form-input">
-                <option>Fresh Produce Delivery</option>
-                <option>Farm Tour / Workshop</option>
-                <option>Bulk Supply (B2B)</option>
-                <option>Other</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label className="form-label">Message</label>
-              <textarea
-                className="form-input form-textarea"
-                placeholder="Tell us about your requirements…"
-              />
-            </div>
-            <button className="form-btn">Send Message 🌿</button>
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* FOOTER */}
       <footer className="footer">
@@ -696,7 +726,9 @@ export default function FarmerProfile({ data }) {
         </div>
         <div className="footer-bottom">
           <span className="footer-copy">
-            © 2026 Organic Roots Farm · Mithun K J · Bengaluru
+            {/* Organic Roots Farm · Mithun K J · Bengaluru */}©{" "}
+            {new Date().getFullYear()} {data?.meta?.name} —{" "}
+            {data?.meta?.tagline}
           </span>
           <div style={{ display: "flex", gap: 14 }}>
             {["Instagram", "Facebook", "LinkedIn"]?.map((p) => (

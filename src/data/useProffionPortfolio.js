@@ -1,5 +1,6 @@
 export const farmerData = {
   accentColor: "#15803d",
+  type: "farmer",
   hero: {
     heading: "Growing Goodness Naturally",
     subheading:
@@ -86,28 +87,32 @@ export const farmerData = {
       title: "Regenerative Millets Revival",
       category: "Crop Restoration",
       year: "2024",
-      desc: "Revived traditional millet cultivation on 8 acres using natural farming, increasing yield while restoring soil health.",
+      description:
+        "Revived traditional millet cultivation on 8 acres using natural farming, increasing yield while restoring soil health.",
       tags: ["Millets", "Regenerative", "Soil Health"],
     },
     {
       title: "Zero Waste Composting Initiative",
       category: "Sustainability",
       year: "2023",
-      desc: "On-farm composting system converting waste into rich organic fertilizer, reducing external inputs by 90%.",
+      description:
+        "On-farm composting system converting waste into rich organic fertilizer, reducing external inputs by 90%.",
       tags: ["Composting", "Circular Economy"],
     },
     {
       title: "Biodiversity Kitchen Garden Network",
       category: "Community",
       year: "2025",
-      desc: "Created a network of 50+ home kitchen gardens in Bengaluru using seeds and training from our farm.",
+      description:
+        "Created a network of 50+ home kitchen gardens in Bengaluru using seeds and training from our farm.",
       tags: ["Urban Farming", "Community"],
     },
     {
       title: "Organic Traceability System",
       category: "Innovation",
       year: "2024",
-      desc: "Implemented full farm traceability using QR codes so customers can track produce from seed to plate.",
+      description:
+        "Implemented full farm traceability using QR codes so customers can track produce from seed to plate.",
       tags: ["Traceability", "Transparency"],
     },
   ],
@@ -151,51 +156,81 @@ export const farmerData = {
   ],
   faq: [
     {
-      q: "Where is your farm located?",
-      a: "Our farm is located near Devanahalli, about 40 km from central Bengaluru. We offer home delivery across Bengaluru and farm visits by appointment.",
+      question: "Where is your farm located?",
+      answer:
+        "Our farm is located near Devanahalli, about 40 km from central Bengaluru. We offer home delivery across Bengaluru and farm visits by appointment.",
     },
     {
-      q: "Are your products certified organic?",
-      a: "Yes, the farm is NPOP certified and also follows Participatory Guarantee System (PGS) standards for transparency and trust.",
+      question: "Are your products certified organic?",
+      answer:
+        "Yes, the farm is NPOP certified and also follows Participatory Guarantee System (PGS) standards for transparency and trust.",
     },
     {
-      q: "Do you deliver weekly subscription boxes?",
-      a: "Yes, we offer customizable weekly and fortnightly organic produce boxes. You can choose your preferred vegetables and fruits.",
+      question: "Do you deliver weekly subscription boxes?",
+      answer:
+        "Yes, we offer customizable weekly and fortnightly organic produce boxes. You can choose your preferred vegetables and fruits.",
     },
     {
-      q: "Can I visit the farm?",
-      a: "Absolutely! We conduct guided farm tours and workshops every weekend. Advance booking is required.",
+      question: "Can I visit the farm?",
+      answer:
+        "Absolutely! We conduct guided farm tours and workshops every weekend. Advance booking is required.",
     },
     {
-      q: "Do you supply to restaurants and corporates?",
-      a: "Yes, we provide bulk organic produce to restaurants, cafes, and corporate kitchens with reliable weekly deliveries.",
+      question: "Do you supply to restaurants and corporates?",
+      answer:
+        "Yes, we provide bulk organic produce to restaurants, cafes, and corporate kitchens with reliable weekly deliveries.",
     },
   ],
   gallery: [
     {
       url: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80",
-      cat: "Fields",
+      category: "Fields",
     },
     {
       url: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80",
 
-      cat: "Harvest",
+      category: "Harvest",
     },
     {
       url: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80",
-      cat: "Farm Life",
+      category: "Farm Life",
     },
     {
       url: "https://images.unsplash.com/photo-1607305387299-a3d9611cd469?w=600&q=80",
-      cat: "Produce",
+      category: "Produce",
     },
     {
       url: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=600&q=80",
 
-      cat: "Community",
+      category: "Community",
     },
   ],
-  type: "farmer",
+  contact: {
+    email: "mithun@gmail.com",
+    phone: "636849001",
+    whatsapp: "636849001",
+    address:
+      "Organic Roots Farm, Devanahalli Road Bengaluru Rural, Karnataka 562110",
+    map: {
+      lat: "number",
+      lng: "number",
+      zoom: "number",
+    },
+    workingHours: [
+      {
+        day: "string",
+        hours: "string",
+        closed: "boolean",
+      },
+    ],
+  },
+  socialLinks: [
+    {
+      platform: "string",
+      url: "string",
+      icon: "string",
+    },
+  ],
 };
 
 import axios from "axios";
