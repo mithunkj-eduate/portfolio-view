@@ -1603,7 +1603,7 @@ export default function ProfessionalProfile({data}) {
           fontSize: 13,
         }}
       >
-        © 2024 {data.meta.name} — {data.meta.tagline}
+        © 2026 {data.meta.name} — {data.meta.tagline}
       </footer>
       <ColorPicker color={accent} onChange={setAccent} />
     </div>
