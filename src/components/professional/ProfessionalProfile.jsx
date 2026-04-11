@@ -386,7 +386,7 @@ function SectionHead({ label, title, subtitle, dark }) {
 }
 
 /* NAVBAR */
-function Navbar({ name }) {
+function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   useEffect(() => {
@@ -464,7 +464,7 @@ function Navbar({ name }) {
                 color: "#fff",
                 border: "none",
                 borderRadius: 8,
-                padding: "8px 18px",
+                padding: "14px 18px",
                 fontSize: 14,
                 fontWeight: 600,
                 cursor: "pointer",
@@ -517,9 +517,9 @@ function Navbar({ name }) {
 }
 
 /* HERO */
-function Hero({data}) {
+function Hero({ data }) {
   const [slide, setSlide] = useState(0);
-  const imgs = data.hero.carousel;
+  const imgs = data.hero?.carousel;
   useEffect(() => {
     const t = setInterval(() => setSlide((s) => (s + 1) % imgs?.length), 4000);
     return () => clearInterval(t);
@@ -580,7 +580,7 @@ function Hero({data}) {
               marginBottom: 18,
             }}
           >
-            {data.meta.tagline}
+            {data?.meta?.tagline}
           </span>
           <h1
             className="hero-title"
@@ -591,7 +591,7 @@ function Hero({data}) {
               margin: "0 0 18px",
             }}
           >
-            {data.hero.heading}
+            {data.hero?.heading}
           </h1>
           <p
             style={{
@@ -601,7 +601,7 @@ function Hero({data}) {
               margin: "0 0 32px",
             }}
           >
-            {data.hero.subheading}
+            {data.hero?.subheading}
           </p>
           <div className="hero-btns">
             <button
@@ -621,10 +621,10 @@ function Hero({data}) {
                 cursor: "pointer",
               }}
             >
-              📅 Book Appointment
+              Book Appointment
             </button>
             <a
-              href={`https://wa.me/${data.contact.whatsapp}`}
+              href={`https://wa.me/${data.contact?.whatsapp}`}
               target="_blank"
               rel="noreferrer"
               style={{
@@ -639,12 +639,12 @@ function Hero({data}) {
                 textDecoration: "none",
               }}
             >
-              💬 WhatsApp Us
+              WhatsApp Us
             </a>
           </div>
         </div>
         <div className="stats-grid">
-          {data.hero.stats?.map((s) => (
+          {data.hero?.stats?.map((s) => (
             <div
               key={s.label}
               style={{
@@ -704,7 +704,7 @@ function Hero({data}) {
 }
 
 /* ABOUT */
-function About({data}) {
+function About({ data }) {
   const d = data.about;
   return (
     <section id="about" className="sec-pad" style={{ background: "#f8fafc" }}>
@@ -750,7 +750,7 @@ function About({data}) {
                 marginBottom: 14,
               }}
             >
-              About the Doctor
+              About
             </span>
             <h2
               style={{
@@ -760,7 +760,7 @@ function About({data}) {
                 margin: "0 0 14px",
               }}
             >
-              {d.title}
+              {d?.title}
             </h2>
             <p
               style={{
@@ -770,42 +770,45 @@ function About({data}) {
                 margin: "0 0 28px",
               }}
             >
-              {d.description}
+              {d?.description}
             </p>
             <div className="highlights-grid">
-              {d.highlights?.map((h) => (
-                <div
-                  key={h.title}
-                  style={{
-                    background: "#fff",
-                    border: "1px solid #e2e8f0",
-                    borderRadius: 12,
-                    padding: "14px 16px",
-                  }}
-                >
-                  <div style={{ fontSize: 20, marginBottom: 5 }}>{h.icon}</div>
+              {d.highlights &&
+                d.highlights?.map((h) => (
                   <div
+                    key={h.title}
                     style={{
-                      fontSize: 11,
-                      color: "#94a3b8",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.08em",
+                      background: "#fff",
+                      border: "1px solid #e2e8f0",
+                      borderRadius: 12,
+                      padding: "14px 16px",
                     }}
                   >
-                    {h.title}
+                    <div style={{ fontSize: 20, marginBottom: 5 }}>
+                      {h?.icon}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: 11,
+                        color: "#94a3b8",
+                        textTransform: "uppercase",
+                        letterSpacing: "0.08em",
+                      }}
+                    >
+                      {h?.title}
+                    </div>
+                    <div
+                      style={{
+                        fontSize: 13,
+                        fontWeight: 600,
+                        color: "#0f172a",
+                        marginTop: 2,
+                      }}
+                    >
+                      {h?.value}
+                    </div>
                   </div>
-                  <div
-                    style={{
-                      fontSize: 13,
-                      fontWeight: 600,
-                      color: "#0f172a",
-                      marginTop: 2,
-                    }}
-                  >
-                    {h.value}
-                  </div>
-                </div>
-              ))}
+                ))}
             </div>
           </div>
         </div>
@@ -815,7 +818,7 @@ function About({data}) {
 }
 
 /* SERVICES */
-function Services({data}) {
+function Services({ data }) {
   return (
     <section id="services" className="sec-pad">
       <Wrap>
@@ -851,7 +854,7 @@ function Services({data}) {
                   alt={s.title}
                   style={{ width: "100%", height: 190, objectFit: "cover" }}
                 />
-                {s.badge && (
+                {s?.badge && (
                   <span
                     style={{
                       position: "absolute",
@@ -911,23 +914,24 @@ function Services({data}) {
                   {s.description}
                 </p>
                 <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
-                  {s.features?.map((f) => (
-                    <span
-                      key={f}
-                      style={{
-                        background: "var(--accent-light)",
-                        color: "var(--accent)",
-                        fontSize: 11,
-                        padding: "3px 9px",
-                        borderRadius: 20,
-                        fontWeight: 500,
-                      }}
-                    >
-                      ✓ {f}
-                    </span>
-                  ))}
+                  {s.features &&
+                    s.features?.map((f) => (
+                      <span
+                        key={f}
+                        style={{
+                          background: "var(--accent-light)",
+                          color: "var(--accent)",
+                          fontSize: 11,
+                          padding: "3px 9px",
+                          borderRadius: 20,
+                          fontWeight: 500,
+                        }}
+                      >
+                        ✓ {f}
+                      </span>
+                    ))}
                 </div>
-                {s.duration && (
+                {s?.duration && (
                   <div
                     style={{ marginTop: 12, color: "#94a3b8", fontSize: 12 }}
                   >
@@ -944,7 +948,7 @@ function Services({data}) {
 }
 
 /* SKILLS */
-function Skills({data}) {
+function Skills({ data }) {
   return (
     <section id="skills" className="sec-pad" style={{ background: "#f8fafc" }}>
       <Wrap>
@@ -1005,81 +1009,85 @@ function Skills({data}) {
                     display: "block",
                   }}
                 >
-                  {s.category}
+                  {s?.category}
                 </span>
               </div>
             ))}
           </div>
-          <div>
-            <h3
-              style={{
-                fontSize: 18,
-                fontWeight: 700,
-                marginBottom: 22,
-                color: "#0f172a",
-              }}
-            >
-              Certifications & Awards
-            </h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              {data.certifications?.map((c, i) => (
-                <div
-                  key={i}
-                  style={{
-                    background: "#fff",
-                    border: "1px solid #e2e8f0",
-                    borderRadius: 12,
-                    padding: "16px 18px",
-                    display: "flex",
-                    gap: 14,
-                    alignItems: "flex-start",
-                  }}
-                >
+          {data.certifications && (
+            <div>
+              <h3
+                style={{
+                  fontSize: 18,
+                  fontWeight: 700,
+                  marginBottom: 22,
+                  color: "#0f172a",
+                }}
+              >
+                Certifications & Awards
+              </h3>
+              <div
+                style={{ display: "flex", flexDirection: "column", gap: 14 }}
+              >
+                {data.certifications?.map((c, i) => (
                   <div
+                    key={i}
                     style={{
-                      width: 40,
-                      height: 40,
-                      borderRadius: 10,
-                      background: "var(--accent-light)",
+                      background: "#fff",
+                      border: "1px solid #e2e8f0",
+                      borderRadius: 12,
+                      padding: "16px 18px",
                       display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      flexShrink: 0,
-                      fontSize: 18,
+                      gap: 14,
+                      alignItems: "flex-start",
                     }}
                   >
-                    🏅
-                  </div>
-                  <div>
                     <div
                       style={{
-                        fontSize: 14,
-                        fontWeight: 700,
-                        color: "#0f172a",
+                        width: 40,
+                        height: 40,
+                        borderRadius: 10,
+                        background: "var(--accent-light)",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        flexShrink: 0,
+                        fontSize: 18,
                       }}
                     >
-                      {c.title}
+                      🏅
                     </div>
-                    <div
-                      style={{ fontSize: 13, color: "#64748b", marginTop: 2 }}
-                    >
-                      {c.issuer}
-                    </div>
-                    <div
-                      style={{
-                        fontSize: 12,
-                        color: "var(--accent)",
-                        fontWeight: 600,
-                        marginTop: 3,
-                      }}
-                    >
-                      {c.year}
+                    <div>
+                      <div
+                        style={{
+                          fontSize: 14,
+                          fontWeight: 700,
+                          color: "#0f172a",
+                        }}
+                      >
+                        {c.title}
+                      </div>
+                      <div
+                        style={{ fontSize: 13, color: "#64748b", marginTop: 2 }}
+                      >
+                        {c.issuer}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: 12,
+                          color: "var(--accent)",
+                          fontWeight: 600,
+                          marginTop: 3,
+                        }}
+                      >
+                        {c.year}
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
+          )}
         </div>
       </Wrap>
     </section>
@@ -1087,13 +1095,13 @@ function Skills({data}) {
 }
 
 /* GALLERY */
-function Gallery({data}) {
+function Gallery({ data }) {
   const cats = ["All", ...new Set(data.gallery?.map((g) => g.category))];
   const [active, setActive] = useState("All");
   const filtered =
     active === "All"
       ? data.gallery
-      : data.gallery.filter((g) => g.category === active);
+      : data.gallery?.filter((g) => g.category === active);
   return (
     <section id="gallery" className="sec-pad">
       <Wrap>
@@ -1138,20 +1146,22 @@ function Gallery({data}) {
                 aspectRatio: "4/3",
               }}
             >
-              <img
-                src={convertDriveToImageUrl(g.url)}
-                alt={g.alt}
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                  transition: "transform 0.3s",
-                }}
-                onMouseEnter={(e) =>
-                  (e.currentTarget.style.transform = "scale(1.06)")
-                }
-                onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
-              />
+              {g.url && (
+                <img
+                  src={convertDriveToImageUrl(g.url)}
+                  alt={g.alt}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover",
+                    transition: "transform 0.3s",
+                  }}
+                  onMouseEnter={(e) =>
+                    (e.currentTarget.style.transform = "scale(1.06)")
+                  }
+                  onMouseLeave={(e) => (e.currentTarget.style.transform = "")}
+                />
+              )}
               <div
                 style={{
                   position: "absolute",
@@ -1165,7 +1175,7 @@ function Gallery({data}) {
                   fontWeight: 500,
                 }}
               >
-                {g.alt}
+                {g?.alt}
               </div>
             </div>
           ))}
@@ -1176,7 +1186,7 @@ function Gallery({data}) {
 }
 
 /* TESTIMONIALS */
-function Testimonials({data}) {
+function Testimonials({ data }) {
   return (
     <section
       id="testimonials"
@@ -1215,9 +1225,9 @@ function Testimonials({data}) {
                   margin: "0 0 18px",
                 }}
               >
-                {t.text}
+                {t?.text}
               </p>
-              <Stars count={t.rating} />
+              {t?.rating && <Stars count={t?.rating} />}
               <div
                 style={{
                   display: "flex",
@@ -1246,7 +1256,7 @@ function Testimonials({data}) {
                       flexShrink: 0,
                     }}
                   >
-                    {t.name[0]}
+                    {t?.name[0]}
                   </div>
                   <div>
                     <div
@@ -1256,14 +1266,16 @@ function Testimonials({data}) {
                         color: "#0f172a",
                       }}
                     >
-                      {t.name}
+                      {t?.name}
                     </div>
                     <div style={{ fontSize: 12, color: "#94a3b8" }}>
-                      {t.role}
+                      {t?.role}
                     </div>
                   </div>
                 </div>
-                <span style={{ fontSize: 12, color: "#94a3b8" }}>{t.date}</span>
+                <span style={{ fontSize: 12, color: "#94a3b8" }}>
+                  {t?.date}
+                </span>
               </div>
             </div>
           ))}
@@ -1274,14 +1286,14 @@ function Testimonials({data}) {
 }
 
 /* FAQ */
-function FAQ({data}) {
+function FAQ({ data }) {
   const [open, setOpen] = useState(null);
   return (
     <section id="faq" className="sec-pad">
       <Wrap>
         <SectionHead label="Questions" title="Frequently Asked Questions" />
         <div style={{ maxWidth: 700, margin: "0 auto" }}>
-          {data.faq?.map((f, i) => (
+          {data?.faq?.map((f, i) => (
             <div
               key={i}
               style={{
@@ -1310,7 +1322,7 @@ function FAQ({data}) {
                   gap: 12,
                 }}
               >
-                <span>{f.question}</span>
+                <span>{f?.question}</span>
                 <span
                   style={{
                     color: "var(--accent)",
@@ -1333,7 +1345,7 @@ function FAQ({data}) {
                     lineHeight: 1.7,
                   }}
                 >
-                  {f.answer}
+                  {f?.answer}
                 </div>
               )}
             </div>
@@ -1345,7 +1357,7 @@ function FAQ({data}) {
 }
 
 /* CONTACT */
-function Contact({data}) {
+function Contact({ data }) {
   const c = data.contact;
   return (
     <section id="contact" className="sec-pad" style={{ background: "#0f172a" }}>
@@ -1367,9 +1379,9 @@ function Contact({data}) {
               }}
             >
               {[
-                { icon: "📧", label: "Email", value: c.email },
-                { icon: "📞", label: "Phone", value: c.phone },
-                { icon: "📍", label: "Address", value: c.address },
+                { icon: "📧", label: "Email", value: c?.email },
+                { icon: "📞", label: "Phone", value: c?.phone },
+                { icon: "📍", label: "Address", value: c?.address },
               ]?.map((item) => (
                 <div
                   key={item.label}
@@ -1388,7 +1400,7 @@ function Contact({data}) {
                       flexShrink: 0,
                     }}
                   >
-                    {item.icon}
+                    {item?.icon}
                   </div>
                   <div>
                     <div
@@ -1398,7 +1410,7 @@ function Contact({data}) {
                         marginBottom: 2,
                       }}
                     >
-                      {item.label}
+                      {item?.label}
                     </div>
                     <div
                       style={{
@@ -1408,7 +1420,7 @@ function Contact({data}) {
                         wordBreak: "break-word",
                       }}
                     >
-                      {item.value}
+                      {item?.value}
                     </div>
                   </div>
                 </div>
@@ -1425,25 +1437,26 @@ function Contact({data}) {
               <h4 style={{ color: "#fff", margin: "0 0 14px", fontSize: 14 }}>
                 Working Hours
               </h4>
-              {c.workingHours?.map((w) => (
-                <div
-                  key={w.day}
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    flexWrap: "wrap",
-                    gap: 4,
-                    padding: "7px 0",
-                    borderBottom: "1px solid rgba(255,255,255,0.06)",
-                    fontSize: 13,
-                  }}
-                >
-                  <span style={{ color: "#94a3b8" }}>{w.day}</span>
-                  <span style={{ color: "#e2e8f0", fontWeight: 500 }}>
-                    {w.hours}
-                  </span>
-                </div>
-              ))}
+              {c.workingHours &&
+                c.workingHours?.map((w) => (
+                  <div
+                    key={w.day}
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      flexWrap: "wrap",
+                      gap: 4,
+                      padding: "7px 0",
+                      borderBottom: "1px solid rgba(255,255,255,0.06)",
+                      fontSize: 13,
+                    }}
+                  >
+                    <span style={{ color: "#94a3b8" }}>{w?.day}</span>
+                    <span style={{ color: "#e2e8f0", fontWeight: 500 }}>
+                      {w?.hours}
+                    </span>
+                  </div>
+                ))}
             </div>
           </div>
           <div
@@ -1577,23 +1590,23 @@ function ColorPicker({ color, onChange }) {
 }
 
 /* APP */
-export default function ProfessionalProfile({data}) {
-  const [accent, setAccent] = useState(data.meta.accentColor);
+export default function ProfessionalProfile({ data }) {
+  const [accent, setAccent] = useState(data.meta?.accentColor ?? "#15803d");
   useAccent(accent);
   return (
     <div
       style={{ fontFamily: "'Inter',system-ui,sans-serif", background: "#fff" }}
     >
       <style>{`:root{--accent:${accent};--accent-light:${accent}22;}${CSS}`}</style>
-      <Navbar name={data.meta.name} />
-      <Hero  data ={data}/>
-      <About  data ={data} />
-      <Services  data ={data}/>
-      <Skills data ={data} />
-      <Gallery  data ={data}/>
-      <Testimonials data ={data} />
-      <FAQ  data ={data}/>
-      <Contact  data ={data}/>
+      <Navbar />
+      {data?.hero && <Hero data={data} />}
+      {data.about && <About data={data} />}
+      {data.services && <Services data={data} />}
+      {data.skills && <Skills data={data} />}
+      {data.gallery && <Gallery data={data} />}
+      {data.testimonials && <Testimonials data={data} />}
+      {data.faq && <FAQ data={data} />}
+      {data.contact && <Contact data={data} />}
       <footer
         style={{
           background: "#020617",
@@ -1603,7 +1616,7 @@ export default function ProfessionalProfile({data}) {
           fontSize: 13,
         }}
       >
-        © 2026 {data.meta.name} — {data.meta.tagline}
+        © {new Date().getFullYear()} {data?.meta?.name} — {data?.meta?.tagline}
       </footer>
       <ColorPicker color={accent} onChange={setAccent} />
     </div>

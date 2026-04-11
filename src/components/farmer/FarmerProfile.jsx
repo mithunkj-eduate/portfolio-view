@@ -726,8 +726,9 @@ export default function FarmerProfile({ data }) {
         </div>
         <div className="footer-bottom">
           <span className="footer-copy">
-            {/* Organic Roots Farm · Mithun K J · Bengaluru */}© 2026{" "}
-            {data?.meta?.name} — {data?.meta?.tagline}
+            {/* Organic Roots Farm · Mithun K J · Bengaluru */}©{" "}
+            {new Date().getFullYear()} {data?.meta?.name} —{" "}
+            {data?.meta?.tagline}
           </span>
           <div style={{ display: "flex", gap: 14 }}>
             {["Instagram", "Facebook", "LinkedIn"]?.map((p) => (
