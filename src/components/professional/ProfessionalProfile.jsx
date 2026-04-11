@@ -1256,7 +1256,7 @@ function Testimonials({ data }) {
                       flexShrink: 0,
                     }}
                   >
-                    {t?.name[0]}
+                    {t?.name && t?.name.charAt(0)}
                   </div>
                   <div>
                     <div
