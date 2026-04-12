@@ -8,10 +8,12 @@ import "./styles.css";
 import Hero from "./Hero";
 import usePortfolioData from "../../data/portfolioData";
 import NotFound from "../../NotFound";
+import { PortfolioType } from "../../utly/constants";
 
 export default function UserProfile() {
   const data = usePortfolioData();
-  if (!data) return <NotFound />;
+
+  if (!data || data.type !== PortfolioType.DEFAULT) return <NotFound />;
 
   return (
     <>

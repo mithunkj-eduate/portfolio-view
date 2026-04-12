@@ -96,6 +96,7 @@ const portfolioData = {
 };
 
 const portfolioData2 = {
+  type: PortfolioType.DEFAULT,
   hero: {
     name: "Alex",
     highlight: "Sharma",
@@ -222,6 +223,7 @@ const portfolioData2 = {
 };
 
 const portfolioData3 = {
+  type: PortfolioType.BUBBLE,
   hero: {
     name: "Priya",
     highlight: "Design",
@@ -357,6 +359,7 @@ const portfolioData3 = {
 };
 
 const portfolioData4 = {
+  type: PortfolioType.CURSOR,
   hero: {
     name: "Rahul",
     highlight: "Builds",
@@ -512,6 +515,7 @@ const portfolioData4 = {
 };
 
 const portfolioData5 = {
+  type: PortfolioType.DEVELOPER,
   hero: {
     name: "Sara",
     highlight: "Codes",
@@ -646,6 +650,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { AppContext } from "../context/context";
 import { payloadTypes } from "../context/reducer";
+import { PortfolioType } from "../utly/constants";
 
 function usePortfolioData() {
   const apiBaseUrl = import.meta.env.VITE_PRODUCTION_BASE_URL;
@@ -661,7 +666,10 @@ function usePortfolioData() {
       try {
         const res = await axios.get(`${apiBaseUrl}/api/portfolio/${id}`);
         if (res && res.data) {
-          setData(res.data.data);
+          setData({
+            ...res.data.data,
+            type: res.data.type ?? PortfolioType.DEFAULT,
+          });
 
           dispatch({
             type: payloadTypes.SET_PORTFOLIO_TYPE,

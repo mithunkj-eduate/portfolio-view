@@ -10,6 +10,7 @@ import { AppContext } from "./context/context";
 import PreviewPage from "./components/apps/PreviewPage";
 import ProfessionalUserProfile from "./components/professional/ProfessionalUserProfile";
 import FarmerUserProfile from "./components/farmer/FarmerUserProfile";
+import { PortfolioType } from "./utly/constants";
 
 export default function App() {
   const { state } = useContext(AppContext);
@@ -40,11 +41,11 @@ export default function App() {
         <Route
           path="/:id"
           element={
-            state.portfolioType === "cursor" ? (
+            state.portfolioType === PortfolioType.CURSOR ? (
               <CursorUserProfile />
-            ) : state.portfolioType === "bubble" ? (
+            ) : state.portfolioType === PortfolioType.BUBBLE ? (
               <BubbleCursorUserProfile />
-            ) : state.portfolioType === "developer" ? (
+            ) : state.portfolioType === PortfolioType.DEVELOPER ? (
               <DeveloperCursorUserProfile />
             ) : (
               <UserProfile />
