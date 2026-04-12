@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import usePortfolioData from "../../data/portfolioData";
 import { convertDriveToImageUrl } from "../../utly/utlyFunction";
 import NotFound from "../../NotFound";
+import { PortfolioType } from "../../utly/constants";
 
 // ─── Inline styles & keyframes injected once ──────────────────────────────────
 const GLOBAL_CSS = `
@@ -515,7 +516,7 @@ export default function CursorProfile() {
   const data = usePortfolioData();
 
   useReveal();
-  if (!data) return <NotFound />;
+  if (!data || data.type !== PortfolioType.CURSOR) return <NotFound />;
 
   // Default fallback data
   const portfolioData = data || {
