@@ -297,7 +297,7 @@ const GLOBAL_CSS = `
   .footer-links a:hover { color:var(--accent); }
 
   /* ── Fade-in on scroll ── */
-  .reveal { opacity:0; transform:translateY(32px); transition:opacity .7s ease, transform .7s ease; }
+  .reveal { opacity:10; transform:translateY(32px); transition:opacity .7s ease, transform .7s ease; }
   .reveal.visible { opacity:1; transform:translateY(0); }
 
   /* ── Animated gradient border for hero name ── */
@@ -631,181 +631,194 @@ export default function CursorProfile() {
       </nav>
 
       {/* HERO */}
-      <section
-        className="hero"
-        id="hero"
-        style={{ zIndex: 2, position: "relative" }}
-      >
-        <div className="hero-bg-glow" />
-        <div className="hero-bg-glow2" />
-        <div className="hero-content">
-          <div className="hero-label">Available for work</div>
-          <h1 className="hero-name">
-            {hero.name}
-            <br />
-            <span className="hl">{hero.highlight}</span>
-          </h1>
-          <p className="hero-sub">
-            <TypeWriter text={hero.subtitle} />
-          </p>
-          <p className="hero-desc">{hero.desc}</p>
-          <div className="hero-cta-row">
-            <a href="#contact" className="btn-primary">
-              Get In Touch
-            </a>
-            <a href="#projects" className="btn-ghost">
-              View Work
-            </a>
+      {hero && (
+        <section
+          className="hero"
+          id="hero"
+          style={{ zIndex: 2, position: "relative" }}
+        >
+          <div className="hero-bg-glow" />
+          <div className="hero-bg-glow2" />
+          <div className="hero-content">
+            <div className="hero-label">Available for work</div>
+            <h1 className="hero-name">
+              {hero.name}
+              <br />
+              <span className="hl">{hero.highlight}</span>
+            </h1>
+            <p className="hero-sub">
+              <TypeWriter text={hero.subtitle} />
+            </p>
+            <p className="hero-desc">{hero.desc}</p>
+            <div className="hero-cta-row">
+              <a href="#contact" className="btn-primary">
+                Get In Touch
+              </a>
+              <a href="#projects" className="btn-ghost">
+                View Work
+              </a>
+            </div>
+            <div className="hero-stats">
+              {hero.stats.map((s, i) => (
+                <div key={i}>
+                  <span className="stat-val">{s.value}</span>
+                  <span className="stat-label">{s.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="hero-stats">
-            {hero.stats.map((s, i) => (
-              <div key={i}>
-                <span className="stat-val">{s.value}</span>
-                <span className="stat-label">{s.label}</span>
-              </div>
-            ))}
-          </div>
-        </div>
 
-        <div className="hero-visual">
-          <div className="hero-orbit">
-            <div className="orbit-dot" />
-            <div className="orbit-dot2" />
-          </div>
-          <div
-            className="hero-orbit"
-            style={{ animationDuration: "28s", animationDirection: "reverse" }}
-          >
+          <div className="hero-visual">
+            <div className="hero-orbit">
+              <div className="orbit-dot" />
+              <div className="orbit-dot2" />
+            </div>
             <div
-              className="orbit-dot"
-              style={{ background: "var(--accent2)", top: "25%", left: "100%" }}
-            />
+              className="hero-orbit"
+              style={{
+                animationDuration: "28s",
+                animationDirection: "reverse",
+              }}
+            >
+              <div
+                className="orbit-dot"
+                style={{
+                  background: "var(--accent2)",
+                  top: "25%",
+                  left: "100%",
+                }}
+              />
+            </div>
+            <div className="hero-img-wrap">
+              {hero.image && imageUrl ? (
+                <img src={imageUrl} alt={hero.name} />
+              ) : (
+                <div className="hero-img-placeholder">
+                  <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+                    <circle
+                      cx="40"
+                      cy="30"
+                      r="18"
+                      stroke="#7c6df0"
+                      strokeWidth="1.5"
+                    />
+                    <path
+                      d="M10 70c0-16.569 13.431-30 30-30s30 13.431 30 30"
+                      stroke="#7c6df0"
+                      strokeWidth="1.5"
+                    />
+                  </svg>
+                  <span>heroimage2.png</span>
+                </div>
+              )}
+            </div>
           </div>
-          <div className="hero-img-wrap">
-            {hero.image && imageUrl ? (
-              <img src={imageUrl} alt={hero.name} />
-            ) : (
-              <div className="hero-img-placeholder">
-                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                  <circle
-                    cx="40"
-                    cy="30"
-                    r="18"
-                    stroke="#7c6df0"
-                    strokeWidth="1.5"
-                  />
-                  <path
-                    d="M10 70c0-16.569 13.431-30 30-30s30 13.431 30 30"
-                    stroke="#7c6df0"
-                    strokeWidth="1.5"
-                  />
-                </svg>
-                <span>heroimage2.png</span>
-              </div>
-            )}
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <div className="sep" />
 
       {/* SKILLS */}
-      <section id="skills" style={{ zIndex: 2, position: "relative" }}>
-        <div className="section-tag">Expertise</div>
-        <h2 className="reveal">Skills & Technologies</h2>
-        <div className="skills-grid">
-          {skills.map((cat, i) => (
-            <div
-              className="skill-card reveal"
-              key={i}
-              style={{ transitionDelay: `${i * 0.1}s` }}
-            >
-              <h3>{cat.title}</h3>
-              <div className="skill-pills">
-                {cat.items.map((item, i) => (
-                  <span className="pill" key={i}>
-                    {item}
-                  </span>
-                ))}
+      {skills && (
+        <section id="skills" style={{ zIndex: 2, position: "relative" }}>
+          <div className="section-tag">Expertise</div>
+          <h2 className="reveal">Skills & Technologies</h2>
+          <div className="skills-grid">
+            {skills.map((cat, i) => (
+              <div
+                className="skill-card reveal"
+                key={i}
+                style={{ transitionDelay: `${i * 0.1}s` }}
+              >
+                <h3>{cat.title}</h3>
+                <div className="skill-pills">
+                  {cat.items.map((item, i) => (
+                    <span className="pill" key={i}>
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      )}
 
       <div className="sep" />
 
       {/* PROJECTS */}
-      <section id="projects" style={{ zIndex: 2, position: "relative" }}>
-        <div className="section-tag">Work</div>
-        <h2 className="reveal">Selected Projects</h2>
-        <div className="projects-grid">
-          {projects.map((p, i) => (
-            <div
-              className="project-card reveal"
-              key={i}
-              style={{ transitionDelay: `${i * 0.12}s` }}
-            >
-              <div className="project-img">
-                {p.image && convertDriveToImageUrl(p.image) ? (
-                  <img
-                    src={convertDriveToImageUrl(p.image)}
-                    className=""
-                    alt={p.image}
-                  />
-                ) : (
-                  <svg
-                    className="project-img-placeholder"
-                    width="60"
-                    height="60"
-                    viewBox="0 0 60 60"
-                    fill="none"
-                  >
-                    <rect
-                      x="5"
-                      y="10"
-                      width="50"
-                      height="35"
-                      rx="4"
-                      stroke="#7c6df0"
-                      strokeWidth="1.5"
+      {projects && (
+        <section id="projects" style={{ zIndex: 2, position: "relative" }}>
+          <div className="section-tag">Work</div>
+          <h2 className="reveal">Selected Projects</h2>
+          <div className="projects-grid">
+            {projects.map((p, i) => (
+              <div
+                className="project-card reveal"
+                key={i}
+                style={{ transitionDelay: `${i * 0.12}s` }}
+              >
+                <div className="project-img">
+                  {p.image && convertDriveToImageUrl(p.image) ? (
+                    <img
+                      src={convertDriveToImageUrl(p.image)}
+                      className=""
+                      alt={p.image}
                     />
-                    <path d="M5 18h50" stroke="#7c6df0" strokeWidth="1.5" />
-                    <circle cx="11" cy="14" r="2" fill="#7c6df0" />
-                    <circle cx="18" cy="14" r="2" fill="#e05fff" />
-                    <path
-                      d="M15 30l8-8 8 8 8-12"
-                      stroke="#7c6df0"
-                      strokeWidth="1.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
-                )}
-              </div>
-              <div className="project-body">
-                <div className="project-title">{p.title}</div>
-                <div className="project-desc">{p.desc}</div>
-                <div className="project-tech">
-                  {p.tech.map((t, i) => (
-                    <span className="pill" key={i}>
-                      {t}
-                    </span>
-                  ))}
+                  ) : (
+                    <svg
+                      className="project-img-placeholder"
+                      width="60"
+                      height="60"
+                      viewBox="0 0 60 60"
+                      fill="none"
+                    >
+                      <rect
+                        x="5"
+                        y="10"
+                        width="50"
+                        height="35"
+                        rx="4"
+                        stroke="#7c6df0"
+                        strokeWidth="1.5"
+                      />
+                      <path d="M5 18h50" stroke="#7c6df0" strokeWidth="1.5" />
+                      <circle cx="11" cy="14" r="2" fill="#7c6df0" />
+                      <circle cx="18" cy="14" r="2" fill="#e05fff" />
+                      <path
+                        d="M15 30l8-8 8 8 8-12"
+                        stroke="#7c6df0"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  )}
                 </div>
-                <a
-                  href={p.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="project-link"
-                >
-                  View Live →
-                </a>
+                <div className="project-body">
+                  <div className="project-title">{p.title}</div>
+                  <div className="project-desc">{p.desc}</div>
+                  <div className="project-tech">
+                    {p.tech.map((t, i) => (
+                      <span className="pill" key={i}>
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <a
+                    href={p.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="project-link"
+                  >
+                    View Live →
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
-      </section>
+            ))}
+          </div>
+        </section>
+      )}
 
       <div className="sep" />
 
@@ -849,51 +862,55 @@ export default function CursorProfile() {
       <div className="sep" />
 
       {/* CONTACT */}
-      <section id="contact" style={{ zIndex: 2, position: "relative" }}>
-        <div className="contact-wrap reveal">
-          <div className="section-tag" style={{ justifyContent: "center" }}>
-            Contact
+      {contact && (
+        <section id="contact" style={{ zIndex: 2, position: "relative" }}>
+          <div className="contact-wrap reveal">
+            <div className="section-tag" style={{ justifyContent: "center" }}>
+              Contact
+            </div>
+            <h2 style={{ textAlign: "center" }}>{contact.title}</h2>
+            <p className="contact-desc">{contact.desc}</p>
+            <a href={`mailto:${contact.email}`} className="contact-email">
+              {contact.email}
+            </a>
+            <p className="contact-phone">{contact.phone}</p>
+            <a
+              href={`mailto:${contact.email}`}
+              className="btn-primary"
+              style={{ display: "inline-block" }}
+            >
+              Send a Message
+            </a>
+            <div className="social-row">
+              {contact.social.map((s) => (
+                <a
+                  key={s.name}
+                  href={s.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-btn"
+                >
+                  {s.name}
+                </a>
+              ))}
+            </div>
           </div>
-          <h2 style={{ textAlign: "center" }}>{contact.title}</h2>
-          <p className="contact-desc">{contact.desc}</p>
-          <a href={`mailto:${contact.email}`} className="contact-email">
-            {contact.email}
-          </a>
-          <p className="contact-phone">{contact.phone}</p>
-          <a
-            href={`mailto:${contact.email}`}
-            className="btn-primary"
-            style={{ display: "inline-block" }}
-          >
-            Send a Message
-          </a>
-          <div className="social-row">
-            {contact.social.map((s) => (
-              <a
-                key={s.name}
-                href={s.link}
-                target="_blank"
-                rel="noreferrer"
-                className="social-btn"
-              >
-                {s.name}
+        </section>
+      )}
+
+      {/* FOOTER */}
+      {footer && (
+        <footer style={{ zIndex: 2, position: "relative" }}>
+          <p>{footer.text}</p>
+          <div className="footer-links">
+            {footer.links.map((l) => (
+              <a key={l.name} href={l.link} target="_blank" rel="noreferrer">
+                {l.name}
               </a>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer style={{ zIndex: 2, position: "relative" }}>
-        <p>{footer.text}</p>
-        <div className="footer-links">
-          {footer.links.map((l) => (
-            <a key={l.name} href={l.link} target="_blank" rel="noreferrer">
-              {l.name}
-            </a>
-          ))}
-        </div>
-      </footer>
+        </footer>
+      )}
     </>
   );
 }
