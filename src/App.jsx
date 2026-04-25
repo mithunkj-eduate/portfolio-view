@@ -12,6 +12,7 @@ import ProfessionalUserProfile from "./components/professional/ProfessionalUserP
 import FarmerUserProfile from "./components/farmer/FarmerUserProfile";
 import { PortfolioType } from "./utly/constants";
 import StudentUserProfile from "./components/student/StudentUserProfile";
+import AiPreviewPage from "./components/ai/AiPreviewPage";
 
 export default function App() {
   const { state } = useContext(AppContext);
@@ -35,6 +36,8 @@ export default function App() {
         />
 
         <Route path="/apps/:appId" element={<PreviewPage />} />
+        <Route path="/apps/ai/:appId" element={<AiPreviewPage />} />
+
         <Route path="/student/:id" element={<StudentUserProfile />} />
 
         <Route
