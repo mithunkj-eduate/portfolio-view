@@ -35,9 +35,11 @@ export default function App() {
           element={<DeveloperCursorUserProfile />}
         />
 
-        <Route path="/apps/ai/:appId" element={<AiPreviewPage />} />
+        <Route path="/ai/apps/:userId/:appId" element={<AiPreviewPage />} />
 
+        {/* <Route path="/apps/:userId/:appId" element={<PreviewPage />} /> */}
         <Route path="/apps/:appId" element={<PreviewPage />} />
+
 
         <Route path="/student/:id" element={<StudentUserProfile />} />
 

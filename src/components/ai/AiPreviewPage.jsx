@@ -5,12 +5,12 @@ import { useParams } from "react-router-dom";
 import NotFound from "../../NotFound";
 
 const AiPreviewPage = () => {
-  const { appId } = useParams();
+  const {userId, appId } = useParams();
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
 
   const apiBaseUrl = import.meta.env.VITE_PRODUCTION_AWS_BUCKET_NAME;
-  const baseKey = `apps/ai/${appId}`;
+  const baseKey = `${userId}/ai/apps/${appId}`;
 
   const s3Url = `https://s3.ap-south-1.amazonaws.com/${apiBaseUrl}/${baseKey}/index.html`;
 

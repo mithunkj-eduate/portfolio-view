@@ -66,6 +66,7 @@ const PreviewPage = () => {
 
   const apiBaseUrl = import.meta.env.VITE_PRODUCTION_AWS_BUCKET_NAME;
   const baseKey = `apps/${appId}`;
+  // const baseKey = `${userId}/apps/${appId}`;
 
   const s3Url = `https://s3.ap-south-1.amazonaws.com/${apiBaseUrl}/${baseKey}/index.html`;
 
