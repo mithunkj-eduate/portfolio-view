@@ -37,8 +37,8 @@ export default function App() {
 
         <Route path="/ai/apps/:userId/:appId" element={<AiPreviewPage />} />
 
-        {/* <Route path="/apps/:userId/:appId" element={<PreviewPage />} /> */}
-        <Route path="/apps/:appId" element={<PreviewPage />} />
+        <Route path="/apps/:userId/:appId" element={<PreviewPage />} />
+        {/* <Route path="/apps/:appId" element={<PreviewPage />} /> */}
 
 
         <Route path="/student/:id" element={<StudentUserProfile />} />
