@@ -13,7 +13,7 @@ const AiPreviewPage = () => {
   const baseKey = `${userId}/ai/apps/${appId}`;
 
   const s3Url = `https://s3.ap-south-1.amazonaws.com/${apiBaseUrl}/${baseKey}/index.html`;
-
+// `https://s3.ap-south-1.amazonaws.com/snap.shareurinterest.com/snap_shareurinterest/posts/697a53cb614db6fe4da4c05b/images/1778050557504-anime.png`;
   useEffect(() => {
     const checkUrl = async () => {
       try {
