@@ -40,9 +40,9 @@ export default function App() {
         <Route path="/apps/:userId/:appId" element={<PreviewPage />} />
         {/* <Route path="/apps/:appId" element={<PreviewPage />} /> */}
 
-
         <Route path="/student/:id" element={<StudentUserProfile />} />
-
+        {/* edit portfolio http://localhost:5173/69b92b1d318aacfc2029f2a5?token=token */}
+        {/* PortfolioType.CURSOR type only edit */}
         <Route
           path="/:id"
           element={

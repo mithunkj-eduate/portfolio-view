@@ -3,6 +3,11 @@ import usePortfolioData from "../../data/portfolioData";
 import { convertDriveToImageUrl } from "../../utly/utlyFunction";
 import NotFound from "../../NotFound";
 import { PortfolioType } from "../../utly/constants";
+import EditableSection from "../edit/EditableSection";
+import SectionEditModal from "../edit/SectionEditModal";
+import useEditMode from "../edit/useEditMode";
+import usePortfolioSave from "../edit/usePortfolioSave";
+import { EDIT_CSS } from "../edit/editCss";
 
 // ─── Inline styles & keyframes injected once ──────────────────────────────────
 const GLOBAL_CSS = `
@@ -514,12 +519,38 @@ function TypeWriter({ text }) {
 // ─── Main Portfolio ────────────────────────────────────────────────────────────
 export default function CursorProfile() {
   const data = usePortfolioData();
+  const { editable, token } = useEditMode();
+  const { save, saving } = usePortfolioSave();
+
+  const [portfolio, setPortfolio] = useState(null);
+  const [editingSection, setEditingSection] = useState(null);
+  const [toast, setToast] = useState(null);
 
   useReveal();
+
+  // Keep an editable local copy once data arrives.
+  useEffect(() => {
+    if (data) setPortfolio(data);
+  }, [data]);
+
+  const handleSave = async (draft) => {
+    try {
+      await save(draft, token);
+      setPortfolio(draft);
+      setEditingSection(null);
+      setToast("Saved ✅");
+    } catch (e) {
+      console.error(e);
+      setToast("Save failed. Check your login / token.");
+    } finally {
+      setTimeout(() => setToast(null), 2500);
+    }
+  };
+
   if (!data || data.type !== PortfolioType.CURSOR) return <NotFound />;
 
   // Default fallback data
-  const portfolioData = data || {
+  const fallbackData = {
     hero: {
       name: "Mithun",
       highlight: "K J",
@@ -604,6 +635,8 @@ export default function CursorProfile() {
     },
   };
 
+  const portfolioData = portfolio || data || fallbackData;
+
   const { hero, projects, about, skills, contact, footer } = portfolioData;
 
   const driveLink = hero.image ? hero.image : "";
@@ -613,6 +646,7 @@ export default function CursorProfile() {
   return (
     <>
       <style>{GLOBAL_CSS}</style>
+      {editable && <style>{EDIT_CSS}</style>}
       <Cursor />
       <div className="noise" />
       <ParticleCanvas />
@@ -633,6 +667,11 @@ export default function CursorProfile() {
 
       {/* HERO */}
       {hero && (
+        <EditableSection
+          editable={editable}
+          label="Hero"
+          onEdit={() => setEditingSection("hero")}
+        >
         <section
           className="hero"
           id="hero"
@@ -715,12 +754,18 @@ export default function CursorProfile() {
             </div>
           </div>
         </section>
+        </EditableSection>
       )}
 
       <div className="sep" />
 
       {/* SKILLS */}
       {skills && (
+        <EditableSection
+          editable={editable}
+          label="Skills"
+          onEdit={() => setEditingSection("skills")}
+        >
         <section id="skills" style={{ zIndex: 2, position: "relative" }}>
           <div className="section-tag">Expertise</div>
           <h2 className="reveal">Skills & Technologies</h2>
@@ -743,12 +788,18 @@ export default function CursorProfile() {
             ))}
           </div>
         </section>
+        </EditableSection>
       )}
 
       <div className="sep" />
 
       {/* PROJECTS */}
       {projects && (
+        <EditableSection
+          editable={editable}
+          label="Projects"
+          onEdit={() => setEditingSection("projects")}
+        >
         <section id="projects" style={{ zIndex: 2, position: "relative" }}>
           <div className="section-tag">Work</div>
           <h2 className="reveal">Selected Projects</h2>
@@ -819,11 +870,17 @@ export default function CursorProfile() {
             ))}
           </div>
         </section>
+        </EditableSection>
       )}
 
       <div className="sep" />
 
       {/* ABOUT */}
+      <EditableSection
+        editable={editable}
+        label="About"
+        onEdit={() => setEditingSection("about")}
+      >
       <section id="about" style={{ zIndex: 2, position: "relative" }}>
         <div className="section-tag">About</div>
         <h2 className="reveal">Who I Am</h2>
@@ -859,11 +916,17 @@ export default function CursorProfile() {
           </div>
         </div>
       </section>
+      </EditableSection>
 
       <div className="sep" />
 
       {/* CONTACT */}
       {contact && (
+        <EditableSection
+          editable={editable}
+          label="Contact"
+          onEdit={() => setEditingSection("contact")}
+        >
         <section id="contact" style={{ zIndex: 2, position: "relative" }}>
           <div className="contact-wrap reveal">
             <div className="section-tag" style={{ justifyContent: "center" }}>
@@ -897,10 +960,16 @@ export default function CursorProfile() {
             </div>
           </div>
         </section>
+        </EditableSection>
       )}
 
       {/* FOOTER */}
       {footer && (
+        <EditableSection
+          editable={editable}
+          label="Footer"
+          onEdit={() => setEditingSection("footer")}
+        >
         <footer style={{ zIndex: 2, position: "relative" }}>
           <p>{footer.text}</p>
           <div className="footer-links">
@@ -911,7 +980,20 @@ export default function CursorProfile() {
             ))}
           </div>
         </footer>
+        </EditableSection>
       )}
+
+      {/* ── Edit popup + toast ── */}
+      {editable && editingSection && (
+        <SectionEditModal
+          sectionKey={editingSection}
+          portfolio={portfolioData}
+          onSave={handleSave}
+          onClose={() => setEditingSection(null)}
+          saving={saving}
+        />
+      )}
+      {editable && toast && <div className="pe-toast">{toast}</div>}
     </>
   );
 }
